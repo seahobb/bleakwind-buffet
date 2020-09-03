@@ -35,61 +35,61 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         private bool cheddar = true;
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing broccoli variable
-        /// </summary>
+        /// </value>
         public bool Broccoli
         {
             get { return broccoli; } 
             set { broccoli = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing mushrooms variable
-        /// </summary>
+        /// </value>
         public bool Mushrooms
         {
             get { return mushrooms; } 
             set { mushrooms = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing tomato variable
-        /// </summary>
+        /// </value>
         public bool Tomato
         {
             get { return tomato; } 
             set { tomato = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing cheddar variable
-        /// </summary>
+        /// </value>
         public bool Cheddar
         {
             get { return cheddar; } 
             set { cheddar = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get entree price
-        /// </summary>
+        /// </value>
         public double Price
         {
             get { return 4.57; } 
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get entree calories
-        /// </summary>
+        /// </value>
         public uint Calories 
         {
             get { return 404; } 
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get entree special instructions
-        /// </summary>
+        /// </value>
         public List<String> SpecialInstructions
         {
             get

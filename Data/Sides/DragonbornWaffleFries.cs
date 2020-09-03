@@ -21,18 +21,18 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         private Size size = Size.Small;
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing size variable
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get { return size; } 
             set { size = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get side price
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -48,9 +48,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get side calories
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -63,6 +63,18 @@ namespace BleakwindBuffet.Data.Sides
                     return 100;
                 else
                     return 0;
+            }
+        }
+
+        /// <value>
+        /// Property to get side special instructions
+        /// </value>
+        public List<String> SpecialInstructions
+        {
+            get
+            {
+                List<String> list = new List<string>();
+                return list;
             }
         }
 

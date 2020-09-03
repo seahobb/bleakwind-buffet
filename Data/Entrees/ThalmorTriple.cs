@@ -65,115 +65,115 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         private bool egg = true;
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing bun variable
-        /// </summary>
+        /// </value>
         public bool Bun
         {
             get { return bun; }
             set { bun = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing ketchup variable
-        /// </summary>
+        /// </value>
         public bool Ketchup
         {
             get { return ketchup; }
             set { ketchup = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing mustard variable
-        /// </summary>
+        /// </value>
         public bool Mustard
         {
             get { return mustard; }
             set { mustard = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing pickle variable
-        /// </summary>
+        /// </value>
         public bool Pickle
         {
             get { return pickle; }
             set { pickle = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing cheese variable
-        /// </summary>
+        /// </value>
         public bool Cheese
         {
             get { return cheese; }
             set { cheese = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing tomato variable
-        /// </summary>
+        /// </value>
         public bool Tomato
         {
             get { return tomato; }
             set { tomato = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing lettuce variable
-        /// </summary>
+        /// </value>
         public bool Lettuce
         {
             get { return lettuce; }
             set { lettuce = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing mayo variable
-        /// </summary>
+        /// </value>
         public bool Mayo
         {
             get { return mayo; }
             set { mayo = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing bacon variable
-        /// </summary>
+        /// </value>
         public bool Bacon
         {
             get { return bacon; }
             set { bacon = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing egg variable
-        /// </summary>
+        /// </value>
         public bool Egg
         {
             get { return egg; }
             set { egg = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get entree price
-        /// </summary>
+        /// </value>
         public double Price
         {
             get { return 8.32; }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get entree calories
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get { return 943; }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get entree special instructions
-        /// </summary>
+        /// </value>
         public List<String> SpecialInstructions
         {
             get

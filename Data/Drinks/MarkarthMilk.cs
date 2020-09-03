@@ -26,27 +26,27 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         private bool ice = false;
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing ice variable
-        /// </summary>
+        /// </value>
         public bool Ice
         {
             get { return ice; }
             set { ice = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Getter and setter for the private backing size variable
-        /// </summary>
+        /// </value>
         public Size Size
         {
             get { return size; }
             set { size = value; }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get drink price
-        /// </summary>
+        /// </value>
         public double Price
         {
             get
@@ -62,9 +62,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get drink calories
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get
@@ -80,9 +80,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get drink special instructions
-        /// </summary>
+        /// </value>
         public List<String> SpecialInstructions
         {
             get

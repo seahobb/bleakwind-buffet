@@ -15,25 +15,25 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThugsTBone
     {
-        /// <summary>
+        /// <value>
         /// Property to get entree price
-        /// </summary>
+        /// </value>
         public double Price
         {
             get { return 6.44; }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get entree calories
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get { return 982; }
         }
 
-        /// <summary>
+        /// <value>
         /// Property to get entree special instructions
-        /// </summary>
+        /// </value>
         public List<String> SpecialInstructions
         {
             get
