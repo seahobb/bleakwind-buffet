@@ -8,13 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Interfaces;
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Represents the Fried Miraak 
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak : Side, IOrderItem
     {
         /// <summary>
         /// Private backing size variable
@@ -33,7 +34,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Property to get side price
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -51,7 +52,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Property to get side calories
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -69,7 +70,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <value>
         /// Property to get side special instructions
         /// </value>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {

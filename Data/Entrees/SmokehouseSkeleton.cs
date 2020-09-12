@@ -7,13 +7,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Interfaces;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Represents the Smokehouse Skeleton 
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree, IOrderItem
     {
         /// <summary>
         /// Private backing sausageLink variable
@@ -74,7 +75,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Property to get entree price
         /// </value>
-        public double Price
+        public override double Price
         {
             get { return 5.62; }
         }
@@ -82,7 +83,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Property to get entree calories
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get { return 602; }
         }
@@ -90,7 +91,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Property to get entree special instructions
         /// </value>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {

@@ -8,13 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Interfaces;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Represents a Warrior Water
     /// </summary>
-    public class WarriorWater
+    public class WarriorWater : Drink, IOrderItem
     {
         /// <summary>
         /// Private backing size variable
@@ -61,7 +62,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Property to get drink price
         /// </value>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -79,7 +80,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Property to get drink calories
         /// </value>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -97,7 +98,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Property to get drink special instructions
         /// </value>
-        public List<String> SpecialInstructions
+        public override List<String> SpecialInstructions
         {
             get
             {

@@ -8,11 +8,26 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Interfaces;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class GardenOrcOmeletteTests
     {
+        [Fact]
+        public void ShouldBeAssignableToAbstractIOrderItem()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<IOrderItem>(goo);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(goo);
+        }
+
         [Fact]
         public void ShouldInlcudeBroccoliByDefault()
         {
