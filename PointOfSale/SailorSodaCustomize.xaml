@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="PointOfSale.SailorSodaCustomize"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <Canvas Background="White">
+            <StackPanel>
+                <Label Content="Customize Sailor Soda" HorizontalAlignment="Center" FontSize="25"/>
+                <RadioButton GroupName="g1" Name="Small" IsChecked="false" Content="Small" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton GroupName="g1" Name="Medium" IsChecked="false" Content="Medium" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton GroupName="g1" Name="Large" IsChecked="false" Content="Large" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <CheckBox Name="Ice" IsChecked="true" Content="Ice" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <RadioButton GroupName="g2" Name="Blackberry" IsChecked="false" Content="Blackberry" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton GroupName="g2" Name="Cherry" IsChecked="true" Content="Cherry" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton GroupName="g2" Name="Grapefruit" IsChecked="false" Content="Grapefruit" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton GroupName="g2" Name="Lemon" IsChecked="false" Content="Lemon" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton GroupName="g2" Name="Peach" IsChecked="false" Content="Peach" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <RadioButton GroupName="g2" Name="Watermelon" IsChecked="false" Content="Watermelon" Width="230" FontSize="14">
+                    <RadioButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </RadioButton.LayoutTransform>
+                </RadioButton>
+                <Button Click="Done" Content="Done" Margin="400, -60, 0, 0" Width="80" Height="60"/>
+            </StackPanel>
+            <Border Name="SodaContainerBorder" Width="600" Height="450"/>
+        </Canvas>
+    </Grid>
+</UserControl>

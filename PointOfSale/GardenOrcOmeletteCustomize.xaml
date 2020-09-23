@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="PointOfSale.GardenOrcOmeletteCustomize"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <Canvas Background="White">
+            <StackPanel>
+                <Label Content="Customize Garden Orc Omelette" HorizontalAlignment="Center" FontSize="25"/>
+                <CheckBox Name="Broccoli" IsChecked="true" Content="Broccoli" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Mushrooms" IsChecked="true" Content="Mushrooms" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Tomato" IsChecked="true" Content="Tomato" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Cheddar" IsChecked="true" Content="Cheddar" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <Button Click="Done" Content="Done" Margin="440, 130, 0, 0" Width="80" Height="60"/>
+            </StackPanel>
+            <Border Name="OmeletteContainerBorder" Width="600" Height="450"/>
+        </Canvas>
+    </Grid>
+</UserControl>

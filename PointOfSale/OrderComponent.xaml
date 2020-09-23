@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="PointOfSale.OrderComponent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="230"/>
+        </Grid.ColumnDefinitions>
+        
+        <local:MenuSelectionComponent/>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="210">
+            <Label Content="Order:" HorizontalAlignment="Center"/>
+            <TextBlock Name="OrderItems"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="210">
+            <WrapPanel>
+                <Button Name="CancelOrder" Content="Cancel Order" Margin="7" Height="50" Width="90"/>
+                <Button Name="FinishOrder" Content="Finish Order" Margin="7" Height="50" Width="90"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Subtotal: $"/>
+                <TextBlock Name="Subtotal" HorizontalAlignment="Left" Width="100"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Tax: $"/>
+                <TextBlock Name="Tax" HorizontalAlignment="Left" Width="100"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Total: $"/>
+                <TextBlock Name="Total" HorizontalAlignment="Left" Width="100"/>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

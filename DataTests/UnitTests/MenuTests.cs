@@ -22,14 +22,16 @@ namespace BleakwindBuffet.DataTests.UnitTests
         {
             IEnumerable<IOrderItem> entrees = Menu.Entrees();
 
+            Assert.Equal(7, entrees.Count());
+
             Assert.Collection(entrees,
-                item => Assert.Equal(entrees.ElementAt(0), item),
-                item => Assert.Equal(entrees.ElementAt(1), item),
-                item => Assert.Equal(entrees.ElementAt(2), item),
-                item => Assert.Equal(entrees.ElementAt(3), item),
-                item => Assert.Equal(entrees.ElementAt(4), item),
-                item => Assert.Equal(entrees.ElementAt(5), item),
-                item => Assert.Equal(entrees.ElementAt(6), item)
+                item => Assert.Equal("Briarheart Burger", item.ToString()),
+                item => Assert.Equal("Double Draugr", item.ToString()),
+                item => Assert.Equal("Garden Orc Omelette", item.ToString()),
+                item => Assert.Equal("Philly Poacher", item.ToString()),
+                item => Assert.Equal("Smokehouse Skeleton", item.ToString()),
+                item => Assert.Equal("Thalmor Triple", item.ToString()),
+                item => Assert.Equal("Thugs T-Bone", item.ToString())
             );
         }
 
@@ -38,19 +40,21 @@ namespace BleakwindBuffet.DataTests.UnitTests
         {
             IEnumerable<IOrderItem> sides = Menu.Sides();
 
+            Assert.Equal(12, sides.Count());
+
             Assert.Collection(sides,
-                item => Assert.Equal(sides.ElementAt(0), item),
-                item => Assert.Equal(sides.ElementAt(1), item),
-                item => Assert.Equal(sides.ElementAt(2), item),
-                item => Assert.Equal(sides.ElementAt(3), item),
-                item => Assert.Equal(sides.ElementAt(4), item),
-                item => Assert.Equal(sides.ElementAt(5), item),
-                item => Assert.Equal(sides.ElementAt(6), item),
-                item => Assert.Equal(sides.ElementAt(7), item),
-                item => Assert.Equal(sides.ElementAt(8), item),
-                item => Assert.Equal(sides.ElementAt(9), item),
-                item => Assert.Equal(sides.ElementAt(10), item),
-                item => Assert.Equal(sides.ElementAt(11), item)
+                item => Assert.Equal("Small Dragonborn Waffle Fries", item.ToString()),
+                item => Assert.Equal("Medium Dragonborn Waffle Fries", item.ToString()),
+                item => Assert.Equal("Large Dragonborn Waffle Fries", item.ToString()),
+                item => Assert.Equal("Small Fried Miraak", item.ToString()),
+                item => Assert.Equal("Medium Fried Miraak", item.ToString()),
+                item => Assert.Equal("Large Fried Miraak", item.ToString()),
+                item => Assert.Equal("Small Mad Otar Grits", item.ToString()),
+                item => Assert.Equal("Medium Mad Otar Grits", item.ToString()),
+                item => Assert.Equal("Large Mad Otar Grits", item.ToString()),
+                item => Assert.Equal("Small Vokun Salad", item.ToString()),
+                item => Assert.Equal("Medium Vokun Salad", item.ToString()),
+                item => Assert.Equal("Large Vokun Salad", item.ToString())
             );
         }
 
@@ -59,95 +63,99 @@ namespace BleakwindBuffet.DataTests.UnitTests
         {
             IEnumerable<IOrderItem> drinks = Menu.Drinks();
 
+            Assert.Equal(30, drinks.Count());
+
             Assert.Collection(drinks,
-                item => Assert.Equal(drinks.ElementAt(0), item),
-                item => Assert.Equal(drinks.ElementAt(1), item),
-                item => Assert.Equal(drinks.ElementAt(2), item),
-                item => Assert.Equal(drinks.ElementAt(3), item),
-                item => Assert.Equal(drinks.ElementAt(4), item),
-                item => Assert.Equal(drinks.ElementAt(5), item),
-                item => Assert.Equal(drinks.ElementAt(6), item),
-                item => Assert.Equal(drinks.ElementAt(7), item),
-                item => Assert.Equal(drinks.ElementAt(8), item),
-                item => Assert.Equal(drinks.ElementAt(9), item),
-                item => Assert.Equal(drinks.ElementAt(10), item),
-                item => Assert.Equal(drinks.ElementAt(11), item),
-                item => Assert.Equal(drinks.ElementAt(12), item),
-                item => Assert.Equal(drinks.ElementAt(13), item),
-                item => Assert.Equal(drinks.ElementAt(14), item),
-                item => Assert.Equal(drinks.ElementAt(15), item),
-                item => Assert.Equal(drinks.ElementAt(16), item),
-                item => Assert.Equal(drinks.ElementAt(17), item),
-                item => Assert.Equal(drinks.ElementAt(18), item),
-                item => Assert.Equal(drinks.ElementAt(19), item),
-                item => Assert.Equal(drinks.ElementAt(20), item),
-                item => Assert.Equal(drinks.ElementAt(21), item),
-                item => Assert.Equal(drinks.ElementAt(22), item),
-                item => Assert.Equal(drinks.ElementAt(23), item),
-                item => Assert.Equal(drinks.ElementAt(24), item),
-                item => Assert.Equal(drinks.ElementAt(25), item),
-                item => Assert.Equal(drinks.ElementAt(26), item),
-                item => Assert.Equal(drinks.ElementAt(27), item),
-                item => Assert.Equal(drinks.ElementAt(28), item),
-                item => Assert.Equal(drinks.ElementAt(29), item)
+                item => Assert.Equal("Small Aretino Apple Juice", item.ToString()),
+                item => Assert.Equal("Medium Aretino Apple Juice", item.ToString()),
+                item => Assert.Equal("Large Aretino Apple Juice", item.ToString()),
+                item => Assert.Equal("Small Candlehearth Coffee", item.ToString()),
+                item => Assert.Equal("Medium Candlehearth Coffee", item.ToString()),
+                item => Assert.Equal("Large Candlehearth Coffee", item.ToString()),
+                item => Assert.Equal("Small Markarth Milk", item.ToString()),
+                item => Assert.Equal("Medium Markarth Milk", item.ToString()),
+                item => Assert.Equal("Large Markarth Milk", item.ToString()),
+                item => Assert.Equal("Small Blackberry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Blackberry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Blackberry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Cherry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Cherry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Cherry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Grapefruit Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Grapefruit Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Grapefruit Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Lemon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Lemon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Lemon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Peach Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Peach Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Peach Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Watermelon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Watermelon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Watermelon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Warrior Water", item.ToString()),
+                item => Assert.Equal("Medium Warrior Water", item.ToString()),
+                item => Assert.Equal("Large Warrior Water", item.ToString())
             );
         }
 
         [Fact]
         public void ShouldReturnListOfAllMenuItems()
         {
-            IEnumerable<IOrderItem> menu = Menu.FullMenu();
-      
+            IEnumerable<IOrderItem> menu = Menu.FullMenu(); 
+
+            Assert.Equal(49, menu.Count());
+
             Assert.Collection(menu,
-                item => Assert.Equal(menu.ElementAt(0), item),
-                item => Assert.Equal(menu.ElementAt(1), item),
-                item => Assert.Equal(menu.ElementAt(2), item),
-                item => Assert.Equal(menu.ElementAt(3), item),
-                item => Assert.Equal(menu.ElementAt(4), item),
-                item => Assert.Equal(menu.ElementAt(5), item),
-                item => Assert.Equal(menu.ElementAt(6), item),
-                item => Assert.Equal(menu.ElementAt(7), item),
-                item => Assert.Equal(menu.ElementAt(8), item),
-                item => Assert.Equal(menu.ElementAt(9), item),
-                item => Assert.Equal(menu.ElementAt(10), item),
-                item => Assert.Equal(menu.ElementAt(11), item),
-                item => Assert.Equal(menu.ElementAt(12), item),
-                item => Assert.Equal(menu.ElementAt(13), item),
-                item => Assert.Equal(menu.ElementAt(14), item),
-                item => Assert.Equal(menu.ElementAt(15), item),
-                item => Assert.Equal(menu.ElementAt(16), item),
-                item => Assert.Equal(menu.ElementAt(17), item),
-                item => Assert.Equal(menu.ElementAt(18), item),
-                item => Assert.Equal(menu.ElementAt(19), item),
-                item => Assert.Equal(menu.ElementAt(20), item),
-                item => Assert.Equal(menu.ElementAt(21), item),
-                item => Assert.Equal(menu.ElementAt(22), item),
-                item => Assert.Equal(menu.ElementAt(23), item),
-                item => Assert.Equal(menu.ElementAt(24), item),
-                item => Assert.Equal(menu.ElementAt(25), item),
-                item => Assert.Equal(menu.ElementAt(26), item),
-                item => Assert.Equal(menu.ElementAt(27), item),
-                item => Assert.Equal(menu.ElementAt(28), item),
-                item => Assert.Equal(menu.ElementAt(29), item),
-                item => Assert.Equal(menu.ElementAt(30), item),
-                item => Assert.Equal(menu.ElementAt(31), item),
-                item => Assert.Equal(menu.ElementAt(32), item),
-                item => Assert.Equal(menu.ElementAt(33), item),
-                item => Assert.Equal(menu.ElementAt(34), item),
-                item => Assert.Equal(menu.ElementAt(35), item),
-                item => Assert.Equal(menu.ElementAt(36), item),
-                item => Assert.Equal(menu.ElementAt(37), item),
-                item => Assert.Equal(menu.ElementAt(38), item),
-                item => Assert.Equal(menu.ElementAt(39), item),
-                item => Assert.Equal(menu.ElementAt(40), item),
-                item => Assert.Equal(menu.ElementAt(41), item),
-                item => Assert.Equal(menu.ElementAt(42), item),
-                item => Assert.Equal(menu.ElementAt(43), item),
-                item => Assert.Equal(menu.ElementAt(44), item),
-                item => Assert.Equal(menu.ElementAt(45), item),
-                item => Assert.Equal(menu.ElementAt(46), item),
-                item => Assert.Equal(menu.ElementAt(47), item),
-                item => Assert.Equal(menu.ElementAt(48), item)
+                item => Assert.Equal("Small Aretino Apple Juice", item.ToString()),
+                item => Assert.Equal("Medium Aretino Apple Juice", item.ToString()),
+                item => Assert.Equal("Large Aretino Apple Juice", item.ToString()),
+                item => Assert.Equal("Small Candlehearth Coffee", item.ToString()),
+                item => Assert.Equal("Medium Candlehearth Coffee", item.ToString()),
+                item => Assert.Equal("Large Candlehearth Coffee", item.ToString()),
+                item => Assert.Equal("Small Markarth Milk", item.ToString()),
+                item => Assert.Equal("Medium Markarth Milk", item.ToString()),
+                item => Assert.Equal("Large Markarth Milk", item.ToString()),
+                item => Assert.Equal("Small Blackberry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Blackberry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Blackberry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Cherry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Cherry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Cherry Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Grapefruit Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Grapefruit Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Grapefruit Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Lemon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Lemon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Lemon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Peach Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Peach Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Peach Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Watermelon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Medium Watermelon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Large Watermelon Sailor Soda", item.ToString()),
+                item => Assert.Equal("Small Warrior Water", item.ToString()),
+                item => Assert.Equal("Medium Warrior Water", item.ToString()),
+                item => Assert.Equal("Large Warrior Water", item.ToString()),
+                item => Assert.Equal("Briarheart Burger", item.ToString()),
+                item => Assert.Equal("Double Draugr", item.ToString()),
+                item => Assert.Equal("Garden Orc Omelette", item.ToString()),
+                item => Assert.Equal("Philly Poacher", item.ToString()),
+                item => Assert.Equal("Smokehouse Skeleton", item.ToString()),
+                item => Assert.Equal("Thalmor Triple", item.ToString()),
+                item => Assert.Equal("Thugs T-Bone", item.ToString()),
+                item => Assert.Equal("Small Dragonborn Waffle Fries", item.ToString()),
+                item => Assert.Equal("Medium Dragonborn Waffle Fries", item.ToString()),
+                item => Assert.Equal("Large Dragonborn Waffle Fries", item.ToString()),
+                item => Assert.Equal("Small Fried Miraak", item.ToString()),
+                item => Assert.Equal("Medium Fried Miraak", item.ToString()),
+                item => Assert.Equal("Large Fried Miraak", item.ToString()),
+                item => Assert.Equal("Small Mad Otar Grits", item.ToString()),
+                item => Assert.Equal("Medium Mad Otar Grits", item.ToString()),
+                item => Assert.Equal("Large Mad Otar Grits", item.ToString()),
+                item => Assert.Equal("Small Vokun Salad", item.ToString()),
+                item => Assert.Equal("Medium Vokun Salad", item.ToString()),
+                item => Assert.Equal("Large Vokun Salad", item.ToString())
             );
         }
     }

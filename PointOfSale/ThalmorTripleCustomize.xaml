@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="PointOfSale.ThalmorTripleCustomize"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <Canvas Background="White">
+            <StackPanel>
+                <Label Content="Customize Thalmor Triple" HorizontalAlignment="Center" FontSize="25"/>
+                <CheckBox Name="Bun" IsChecked="true" Content="Bun" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Ketchup" IsChecked="true" Content="Ketchup" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Mustard" IsChecked="true" Content="Mustard" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Pickle" IsChecked="true" Content="Pickle" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Cheese" IsChecked="true" Content="Cheese" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Tomato" IsChecked="true" Content="Tomato" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Lettuce" IsChecked="true" Content="Lettuce" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Mayo" IsChecked="true" Content="Mayo" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Bacon" IsChecked="true" Content="Bacon" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Egg" IsChecked="true" Content="Egg" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <Button Click="Done" Content="Done" Margin="400, -60, 0, 0" Width="80" Height="60"/>
+            </StackPanel>
+            <Border Name="TripleContainerBorder" Width="600" Height="450"/>
+        </Canvas>
+    </Grid>
+</UserControl>

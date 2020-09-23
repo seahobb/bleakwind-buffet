@@ -195,6 +195,18 @@ namespace BleakwindBuffet.Data
             
             List<IOrderItem> drinks = new List<IOrderItem>();
 
+            drinks.Add(ajSmall);
+            drinks.Add(ajMedium);
+            drinks.Add(ajLarge);
+
+            drinks.Add(ccSmall);
+            drinks.Add(ccMedium);
+            drinks.Add(ccLarge);
+
+            drinks.Add(mmSmall);
+            drinks.Add(mmMedium);
+            drinks.Add(mmLarge);
+
             drinks.Add(ssSmallBlackberry);
             drinks.Add(ssMediumBlackberry);
             drinks.Add(ssLargeBlackberry);
@@ -218,18 +230,6 @@ namespace BleakwindBuffet.Data
             drinks.Add(ssSmallWatermelon);
             drinks.Add(ssMediumWatermelon);
             drinks.Add(ssLargeWatermelon);
-
-            drinks.Add(ajSmall);
-            drinks.Add(ajMedium);
-            drinks.Add(ajLarge);
-
-            drinks.Add(ccSmall);
-            drinks.Add(ccMedium);
-            drinks.Add(ccLarge);
-
-            drinks.Add(mmSmall);
-            drinks.Add(mmMedium);
-            drinks.Add(mmLarge);
 
             drinks.Add(wwSmall);
             drinks.Add(wwMedium);
