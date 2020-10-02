@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: SmokehouseSkeletonCustomize.xaml.cs
  * Purpose: Class used to represent a Smokehouse Skeleton entree customization screen
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,23 @@ namespace PointOfSale
     public partial class SmokehouseSkeletonCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a SmokehouseSkeleton instance
+        /// </summary>
+        SmokehouseSkeleton ss;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public SmokehouseSkeletonCustomize()
         {
             InitializeComponent();
+            ss = new SmokehouseSkeleton();
+            ss.Egg = true;
+            ss.HashBrowns = true;
+            ss.Pancake = true;
+            ss.SausageLink = true;
+
+            this.DataContext = ss;
         }
 
         /// <summary>

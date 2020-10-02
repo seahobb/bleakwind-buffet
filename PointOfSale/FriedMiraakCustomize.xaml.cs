@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: FriedMiraakCustomize.xaml.cs
  * Purpose: Class used to represent a Fried Miraak side customization screen
  */
 
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,20 @@ namespace PointOfSale
     public partial class FriedMiraakCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a FriedMiraak instance
+        /// </summary>
+        FriedMiraak fm;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public FriedMiraakCustomize()
         {
             InitializeComponent();
+            fm = new FriedMiraak();
+            fm.Size = BleakwindBuffet.Data.Enums.Size.Small;
+
+            this.DataContext = fm;
         }
 
         /// <summary>

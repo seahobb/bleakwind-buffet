@@ -10,42 +10,42 @@
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Double Draugr" HorizontalAlignment="Center" FontSize="25"/>
-                <CheckBox Name="Bun" IsChecked="true" Content="Bun" Width="230" FontSize="14">
+                <CheckBox Name="Bun" IsChecked="{Binding Path=Bun}" Content="Bun" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Ketchup" IsChecked="true" Content="Ketchup" Width="230" FontSize="14">
+                <CheckBox Name="Ketchup" IsChecked="{Binding Path=Bun}" Content="Ketchup" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Mustard" IsChecked="true" Content="Mustard" Width="230" FontSize="14">
+                <CheckBox Name="Mustard" IsChecked="{Binding Path=Bun}" Content="Mustard" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Pickle" IsChecked="true" Content="Pickle" Width="230" FontSize="14">
+                <CheckBox Name="Pickle" IsChecked="{Binding Path=Bun}" Content="Pickle" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Cheese" IsChecked="true" Content="Cheese" Width="230" FontSize="14">
+                <CheckBox Name="Cheese" IsChecked="{Binding Path=Bun}" Content="Cheese" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Tomato" IsChecked="true" Content="Tomato" Width="230" FontSize="14">
+                <CheckBox Name="Tomato" IsChecked="{Binding Path=Bun}" Content="Tomato" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Lettuce" IsChecked="true" Content="Lettuce" Width="230" FontSize="14">
+                <CheckBox Name="Lettuce" IsChecked="{Binding Path=Bun}" Content="Lettuce" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Mayo" IsChecked="true" Content="Mayo" Width="230" FontSize="14">
+                <CheckBox Name="Mayo" IsChecked="{Binding Path=Bun}" Content="Mayo" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>

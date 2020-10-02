@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 9/30/2020
  * Class name: CandlehearthCoffeeCustomize.xaml.cs
  * Purpose: Class used to represent a Candlehearth Coffee drink customization screen
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,23 @@ namespace PointOfSale
     public partial class CandlehearthCoffeeCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a CandlehearthCoffee instance
+        /// </summary>
+        CandlehearthCoffee cc;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public CandlehearthCoffeeCustomize()
         {
             InitializeComponent();
+            cc = new CandlehearthCoffee();
+            cc.Ice = false;
+            cc.RoomForCream = false;
+            cc.Decaf = false;
+            cc.Size = BleakwindBuffet.Data.Enums.Size.Small;
+
+            this.DataContext = cc;
         }
 
         /// <summary>

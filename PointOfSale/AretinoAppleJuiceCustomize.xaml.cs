@@ -1,11 +1,14 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 9/30/2020
  * Class name: AretinoAppleJuiceCustomize.xaml.cs
  * Purpose: Class used to represent a Aretino Apple Juice drink customization screen
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,11 +28,21 @@ namespace PointOfSale
     public partial class AretinoAppleJuiceCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent an AretinoAppleJuice instance
+        /// </summary>
+        AretinoAppleJuice aj; //put out here in case i make other methods
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public AretinoAppleJuiceCustomize()
         {
             InitializeComponent();
+            aj = new AretinoAppleJuice();
+            aj.Ice = false; //whatever you change here is what happens when you run program (instad of xaml now)
+            aj.Size = BleakwindBuffet.Data.Enums.Size.Small;
+
+            this.DataContext = aj;
         }
 
         /// <summary>

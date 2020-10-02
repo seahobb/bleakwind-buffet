@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: VokunSaladCustomize.xaml.cs
  * Purpose: Class used to represent a Vokun Salad side customization screen
  */
 
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,20 @@ namespace PointOfSale
     public partial class VokunSaladCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a VokunSalad instance
+        /// </summary>
+        VokunSalad vs;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public VokunSaladCustomize()
         {
             InitializeComponent();
+            vs = new VokunSalad();
+            vs.Size = BleakwindBuffet.Data.Enums.Size.Small;
+
+            this.DataContext = vs;
         }
 
         /// <summary>

@@ -40,7 +40,7 @@ namespace PointOfSale
         /// <param name="sender">The object sending a message</param>
         /// <param name="e">The event data</param>
         void BriarheartBurger(object sender, RoutedEventArgs e)
-        {          
+        {
             ContainerBorder.Child = new BriarheartBurgerCustomize(); 
         }
 

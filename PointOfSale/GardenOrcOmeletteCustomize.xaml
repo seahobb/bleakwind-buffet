@@ -10,22 +10,22 @@
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Garden Orc Omelette" HorizontalAlignment="Center" FontSize="25"/>
-                <CheckBox Name="Broccoli" IsChecked="true" Content="Broccoli" Width="230" FontSize="14">
+                <CheckBox Name="Broccoli" IsChecked="{Binding Path=Broccoli}" Content="Broccoli" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Mushrooms" IsChecked="true" Content="Mushrooms" Width="230" FontSize="14">
+                <CheckBox Name="Mushrooms" IsChecked="{Binding Path=Mushrooms}" Content="Mushrooms" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Tomato" IsChecked="true" Content="Tomato" Width="230" FontSize="14">
+                <CheckBox Name="Tomato" IsChecked="{Binding Path=Tomato}" Content="Tomato" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Cheddar" IsChecked="true" Content="Cheddar" Width="230" FontSize="14">
+                <CheckBox Name="Cheddar" IsChecked="{Binding Path=Cheddar}" Content="Cheddar" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>

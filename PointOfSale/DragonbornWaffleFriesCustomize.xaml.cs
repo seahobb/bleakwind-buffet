@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: DragonbornWaffleFriesCustomization.xaml.cs
  * Purpose: Class used to represent a Dragonborn Waffle Fries side customization screen
  */
 
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,20 @@ namespace PointOfSale
     public partial class DragonbornWaffleFriesCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a DragonbornWaffleFries instance
+        /// </summary>
+        DragonbornWaffleFries dwf;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public DragonbornWaffleFriesCustomize()
         {
             InitializeComponent();
+            dwf = new DragonbornWaffleFries();
+            dwf.Size = BleakwindBuffet.Data.Enums.Size.Small;
+
+            this.DataContext = dwf;
         }
 
         /// <summary>

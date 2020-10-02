@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: SailorSoda.cs
  * Purpose: Class used to represent a Sailor Soda drink
  */
@@ -9,14 +10,20 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Represents a Sailor Soda
     /// </summary>
-    public class SailorSoda : Drink, IOrderItem
+    public class SailorSoda : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for changed property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private backing size variable
         /// </summary>
@@ -38,7 +45,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set 
+            { 
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -47,7 +59,13 @@ namespace BleakwindBuffet.Data.Drinks
         public Size Size
         {
             get { return size; }
-            set { size = value; }
+            set 
+            { 
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         /// <value>
@@ -56,7 +74,11 @@ namespace BleakwindBuffet.Data.Drinks
         public SodaFlavor Flavor
         {
             get { return flavor; }
-            set { flavor = value; }
+            set 
+            { 
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+            }
         }
 
         /// <value>

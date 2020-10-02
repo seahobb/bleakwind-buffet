@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: DoubleDraugrCustomize.xaml.cs
  * Purpose: Class used to represent a Double Draugr entree customization screen
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,27 @@ namespace PointOfSale
     public partial class DoubleDraugrCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a DoubleDraugr instance
+        /// </summary>
+        DoubleDraugr dd;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public DoubleDraugrCustomize()
         {
             InitializeComponent();
+            dd = new DoubleDraugr();
+            dd.Bun = true;
+            dd.Ketchup = true;
+            dd.Mustard = true;
+            dd.Pickle = true;
+            dd.Cheese = true;
+            dd.Tomato = true;
+            dd.Lettuce = true;
+            dd.Mayo = true;
+
+            this.DataContext = dd;
         }
 
         /// <summary>

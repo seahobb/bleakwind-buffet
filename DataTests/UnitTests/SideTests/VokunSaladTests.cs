@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler
+ * Edited by: Ethan Wheeler on 10/1/2020
  * Class: VokunSaladTests.cs
  * Purpose: Test the VokunSalad.cs class in the Data library
  */
@@ -10,11 +10,73 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class VokunSaladTests
     {
+        [Fact]
+        public void ClassShouldImplementINotifyPropertyChangedInterface()
+        {
+            var vs = new VokunSalad();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(vs);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var vs = new VokunSalad();
+            Assert.PropertyChanged(vs, "Size", () =>
+            {
+                vs.Size = Size.Small;
+            });
+            Assert.PropertyChanged(vs, "Size", () =>
+            {
+                vs.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(vs, "Size", () =>
+            {
+                vs.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var vs = new VokunSalad();
+            Assert.PropertyChanged(vs, "Price", () =>
+            {
+                vs.Size = Size.Small;
+            });
+            Assert.PropertyChanged(vs, "Price", () =>
+            {
+                vs.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(vs, "Price", () =>
+            {
+                vs.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var vs = new VokunSalad();
+            Assert.PropertyChanged(vs, "Calories", () =>
+            {
+                vs.Size = Size.Small;
+            });
+            Assert.PropertyChanged(vs, "Calories", () =>
+            {
+                vs.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(vs, "Calories", () =>
+            {
+                vs.Size = Size.Large;
+            });
+        }
+
         [Fact]
         public void ShouldBeAssignableToAbstractIOrderItem()
         {

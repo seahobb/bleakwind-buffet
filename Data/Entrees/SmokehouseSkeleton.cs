@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: SmokehouseSkeleton.cs
  * Purpose: Class used to represent a Smokehouse Skeleton entree
  */
@@ -8,14 +9,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Represents the Smokehouse Skeleton 
     /// </summary>
-    public class SmokehouseSkeleton : Entree, IOrderItem
+    public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for changed property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private backing sausageLink variable
         /// </summary>
@@ -42,7 +49,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool SausageLink
         {
             get { return sausageLink; }
-            set { sausageLink = value; }
+            set 
+            { 
+                sausageLink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -51,7 +63,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get { return egg; }
-            set { egg = value; }
+            set 
+            { 
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -60,7 +77,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool HashBrowns
         {
             get { return hashBrowns; }
-            set { hashBrowns = value; }
+            set 
+            { 
+                hashBrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -69,7 +91,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pancake
         {
             get { return pancake; }
-            set { pancake = value; }
+            set 
+            { 
+                pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>

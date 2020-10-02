@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler
+ * Edited by: Ethan Wheeler on 10/1/2020
  * Class: MadOtarGritsTests.cs
  * Purpose: Test the MadOtarGrits.cs class in the Data library
  */
@@ -10,11 +10,73 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
     {
+        [Fact]
+        public void ClassShouldImplementINotifyPropertyChangedInterface()
+        {
+            var mog = new MadOtarGrits();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(mog);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var mog = new MadOtarGrits();
+            Assert.PropertyChanged(mog, "Size", () =>
+            {
+                mog.Size = Size.Small;
+            });
+            Assert.PropertyChanged(mog, "Size", () =>
+            {
+                mog.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(mog, "Size", () =>
+            {
+                mog.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var mog = new MadOtarGrits();
+            Assert.PropertyChanged(mog, "Price", () =>
+            {
+                mog.Size = Size.Small;
+            });
+            Assert.PropertyChanged(mog, "Price", () =>
+            {
+                mog.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(mog, "Price", () =>
+            {
+                mog.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var mog = new MadOtarGrits();
+            Assert.PropertyChanged(mog, "Calories", () =>
+            {
+                mog.Size = Size.Small;
+            });
+            Assert.PropertyChanged(mog, "Calories", () =>
+            {
+                mog.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(mog, "Calories", () =>
+            {
+                mog.Size = Size.Large;
+            });
+        }
+
         [Fact]
         public void ShouldBeAssignableToAbstractIOrderItem()
         {

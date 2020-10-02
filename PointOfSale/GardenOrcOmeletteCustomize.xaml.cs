@@ -4,6 +4,7 @@
  * Purpose: Class used to represent a Garden Orc Omelette entree customization screen
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +26,23 @@ namespace PointOfSale
     public partial class GardenOrcOmeletteCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a GardenOrcOmelette instance
+        /// </summary>
+        GardenOrcOmelette goo;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public GardenOrcOmeletteCustomize()
         {
             InitializeComponent();
+            goo = new GardenOrcOmelette();
+            goo.Broccoli = true;
+            goo.Cheddar = true;
+            goo.Mushrooms = true;
+            goo.Tomato = true;
+
+            this.DataContext = goo;
         }
 
         /// <summary>

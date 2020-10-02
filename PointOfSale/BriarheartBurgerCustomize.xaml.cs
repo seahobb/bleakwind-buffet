@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: BriarheartBurgerCustomize.xaml.cs
  * Purpose: Class used to represent a Briarheart Burger entree customization screen
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,24 @@ namespace PointOfSale
     public partial class BriarheartBurgerCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a BriarheartBurger instance
+        /// </summary>
+        BriarheartBurger bb;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public BriarheartBurgerCustomize()
         {
             InitializeComponent();
+            bb = new BriarheartBurger();
+            bb.Bun = true;
+            bb.Ketchup = true;
+            bb.Mustard = true;
+            bb.Pickle = true;
+            bb.Cheese = true;
+
+            this.DataContext = bb;
         }
 
         /// <summary>

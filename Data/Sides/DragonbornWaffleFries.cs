@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: DragonbornWaffleFries.cs
  * Purpose: Class used to represent a Dragonborn Waffle Fries side
  */
@@ -9,14 +10,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Represents the Dragonborn Waffle Fries
     /// </summary>
-    public class DragonbornWaffleFries : Side, IOrderItem
+    public class DragonbornWaffleFries : Side, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for changed property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private backing size variable
         /// </summary>
@@ -28,7 +35,13 @@ namespace BleakwindBuffet.Data.Sides
         public Size Size
         {
             get { return size; } 
-            set { size = value; }
+            set 
+            { 
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         /// <value>

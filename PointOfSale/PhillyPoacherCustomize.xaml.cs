@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: PhillyPoacherCustomize.xaml.cs
  * Purpose: Class used to represent a Philly Poacher entree customization screen
  */
 
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,22 @@ namespace PointOfSale
     public partial class PhillyPoacherCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a PhillyPoacher instance
+        /// </summary>
+        PhillyPoacher pp;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public PhillyPoacherCustomize()
         {
             InitializeComponent();
+            pp = new PhillyPoacher();
+            pp.Sirloin = true;
+            pp.Onion = true;
+            pp.Roll = true;
+
+            this.DataContext = pp;
         }
 
         /// <summary>

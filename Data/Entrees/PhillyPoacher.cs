@@ -8,14 +8,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Represents the Philly Poacher 
     /// </summary>
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for changed property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private backing sirloin variable
         /// </summary>
@@ -37,7 +43,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Sirloin
         {
             get { return sirloin; }
-            set { sirloin = value; }
+            set 
+            { 
+                sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -46,7 +57,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onion
         {
             get { return onion; }
-            set { onion = value; }
+            set 
+            { 
+                onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -55,7 +71,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Roll
         {
             get { return roll; }
-            set { roll = value; }
+            set 
+            { 
+                roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>

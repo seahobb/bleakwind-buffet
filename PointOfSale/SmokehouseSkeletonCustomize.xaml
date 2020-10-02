@@ -10,22 +10,22 @@
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Smokehouse Skeleton" HorizontalAlignment="Center" FontSize="25"/>
-                <CheckBox Name="SausageLink" IsChecked="true" Content="SausageLink" Width="230" FontSize="14">
+                <CheckBox Name="SausageLink" IsChecked="{Binding Path=SausageLink}" Content="SausageLink" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Egg" IsChecked="true" Content="Egg" Width="230" FontSize="14">
+                <CheckBox Name="Egg" IsChecked="{Binding Path=Egg}" Content="Egg" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="HashBrowns" IsChecked="true" Content="HashBrowns" Width="230" FontSize="14">
+                <CheckBox Name="HashBrowns" IsChecked="{Binding Path=HashBrowns}" Content="HashBrowns" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Pancake" IsChecked="true" Content="Pancake" Width="230" FontSize="14">
+                <CheckBox Name="Pancake" IsChecked="{Binding Path=Pancake}" Content="Pancake" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>

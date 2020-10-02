@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler
+ * Edited by: Ethan Wheeler on 10/1/2020
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
@@ -9,11 +9,131 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
     {
+        [Fact]
+        public void ClassShouldImplementINotifyPropertyChangedInterface()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(ss);
+        }
+
+        [Fact]
+        public void ChangingSausageNotifiesSausageProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SausageLink", () =>
+            {
+                ss.SausageLink = true;
+            });
+            Assert.PropertyChanged(ss, "SausageLink", () =>
+            {
+                ss.SausageLink = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingSausageLinkNotifiesSpecialInstructionsProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SpecialInstructions", () =>
+            {
+                ss.SausageLink = true;
+            });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () =>
+            {
+                ss.SausageLink = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingEggNotifiesEggProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = true;
+            });
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingEggNotifiesSpecialInstructionsProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SpecialInstructions", () =>
+            {
+                ss.Egg = true;
+            });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () =>
+            {
+                ss.Egg = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingHashBrownsNotifiesHashBrownsProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "HashBrowns", () =>
+            {
+                ss.HashBrowns = true;
+            });
+            Assert.PropertyChanged(ss, "HashBrowns", () =>
+            {
+                ss.HashBrowns = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingHashBrownsNotifiesSpecialInstructionsProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SpecialInstructions", () =>
+            {
+                ss.HashBrowns = true;
+            });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () =>
+            {
+                ss.HashBrowns = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPancakeNotifiesPancakeProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = true;
+            });
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingPancakeNotifiesSpecialInstructionsProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+            Assert.PropertyChanged(ss, "SpecialInstructions", () =>
+            {
+                ss.Pancake = true;
+            });
+            Assert.PropertyChanged(ss, "SpecialInstructions", () =>
+            {
+                ss.Pancake = false;
+            });
+        }
+
         [Fact]
         public void ShouldBeAssignableToAbstractIOrderItem()
         {

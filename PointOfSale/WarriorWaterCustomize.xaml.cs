@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: WarriorWaterCustomization.xaml.cs
  * Purpose: Class used to represent a Warrior Water drink customization screen
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,22 @@ namespace PointOfSale
     public partial class WarriorWaterCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a WarriorWater instance
+        /// </summary>
+        WarriorWater ww;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public WarriorWaterCustomize()
         {
             InitializeComponent();
+            ww = new WarriorWater();
+            ww.Ice = true;
+            ww.Lemon = false;
+            ww.Size = BleakwindBuffet.Data.Enums.Size.Small;
+
+            this.DataContext = ww;
         }
 
         /// <summary>

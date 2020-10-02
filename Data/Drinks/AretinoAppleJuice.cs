@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 9/30/2020
  * Class name: AretinoAppleJuice.cs
  * Purpose: Class used to represent a Aretino Apple Juice drink
  */
@@ -9,14 +10,20 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Represents a Aretino Apple Juice
     /// </summary>
-    public class AretinoAppleJuice : Drink, IOrderItem
+    public class AretinoAppleJuice : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for changed property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private backing size variable
         /// </summary>
@@ -33,7 +40,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set 
+            { 
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -42,7 +54,14 @@ namespace BleakwindBuffet.Data.Drinks
         public Size Size
         {
             get { return size; }
-            set { size = value; }
+            set 
+            { 
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                //ignore tostring, it is not a property
+            }
         }
 
         /// <value>
@@ -103,6 +122,5 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return "" + size + " Aretino Apple Juice";
         }
-
     }
 }

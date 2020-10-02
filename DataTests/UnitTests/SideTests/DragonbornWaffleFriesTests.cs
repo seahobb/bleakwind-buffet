@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler
+ * Edited by: Ethan Wheeler on 10/1/2020
  * Class: DragonbornWaffleFriesTests.cs
  * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
  */
@@ -10,11 +10,73 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class DragonbornWaffleFriesTests
     {
+        [Fact]
+        public void ClassShouldImplementINotifyPropertyChangedInterface()
+        {
+            var dwf = new DragonbornWaffleFries();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(dwf);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var dwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dwf, "Size", () =>
+            {
+                dwf.Size = Size.Small;
+            });
+            Assert.PropertyChanged(dwf, "Size", () =>
+            {
+                dwf.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(dwf, "Size", () =>
+            {
+                dwf.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var dwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dwf, "Price", () =>
+            {
+                dwf.Size = Size.Small;
+            });
+            Assert.PropertyChanged(dwf, "Price", () =>
+            {
+                dwf.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(dwf, "Price", () =>
+            {
+                dwf.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var dwf = new DragonbornWaffleFries();
+            Assert.PropertyChanged(dwf, "Calories", () =>
+            {
+                dwf.Size = Size.Small;
+            });
+            Assert.PropertyChanged(dwf, "Calories", () =>
+            {
+                dwf.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(dwf, "Calories", () =>
+            {
+                dwf.Size = Size.Large;
+            });
+        }
+
         [Fact]
         public void ShouldBeAssignableToAbstractIOrderItem()
         {

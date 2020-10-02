@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: SailorSodaCustomize.xaml.cs
  * Purpose: Class used to represent a Sailor Soda drink customization screen
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,22 @@ namespace PointOfSale
     public partial class SailorSodaCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a SailorSoda instance
+        /// </summary>
+        SailorSoda ss;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public SailorSodaCustomize()
         {
             InitializeComponent();
+            ss = new SailorSoda();
+            ss.Ice = true;
+            ss.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Cherry;
+            ss.Size = BleakwindBuffet.Data.Enums.Size.Small;
+
+            this.DataContext = ss;
         }
 
         /// <summary>

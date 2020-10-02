@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: VokunSalad.cs
  * Purpose: Class used to represent a Vokun Salad side
  */
@@ -9,14 +10,20 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// Represents the Vokun Salad
     /// </summary>
-    public class VokunSalad : Side, IOrderItem
+    public class VokunSalad : Side, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for changed property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private backing size variable
         /// </summary>
@@ -28,7 +35,13 @@ namespace BleakwindBuffet.Data.Sides
         public Size Size
         {
             get { return size; }
-            set { size = value; }
+            set 
+            { 
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
         }
 
         /// <value>

@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: GardenOrcOmelette.cs
  * Purpose: Class used to represent a Garden Orc Omelette entree
  */
@@ -8,14 +9,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Represents the Garden Orc Omelette
     /// </summary>
-    public class GardenOrcOmelette : Entree, IOrderItem
+    public class GardenOrcOmelette : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for changed property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Private backing broccoli variable
         /// </summary>
@@ -42,7 +49,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Broccoli
         {
             get { return broccoli; } 
-            set { broccoli = value; }
+            set 
+            { 
+                broccoli = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -51,7 +63,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mushrooms
         {
             get { return mushrooms; } 
-            set { mushrooms = value; }
+            set 
+            { 
+                mushrooms = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -60,7 +77,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato
         {
             get { return tomato; } 
-            set { tomato = value; }
+            set 
+            { 
+                tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>
@@ -69,7 +91,12 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheddar
         {
             get { return cheddar; } 
-            set { cheddar = value; }
+            set 
+            { 
+                cheddar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <value>

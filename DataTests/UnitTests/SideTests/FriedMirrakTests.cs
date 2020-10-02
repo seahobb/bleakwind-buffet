@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler
+ * Edited by: Ethan Wheeler on 10/1/2020
  * Class: FriedMiraakTests.cs
  * Purpose: Test the FriedMiraak.cs class in the Data library
  */
@@ -10,11 +10,73 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class FriedMiraakTests
     {
+        [Fact]
+        public void ClassShouldImplementINotifyPropertyChangedInterface()
+        {
+            var fm = new FriedMiraak();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(fm);
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var fm = new FriedMiraak();
+            Assert.PropertyChanged(fm, "Size", () =>
+            {
+                fm.Size = Size.Small;
+            });
+            Assert.PropertyChanged(fm, "Size", () =>
+            {
+                fm.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(fm, "Size", () =>
+            {
+                fm.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var fm = new FriedMiraak();
+            Assert.PropertyChanged(fm, "Price", () =>
+            {
+                fm.Size = Size.Small;
+            });
+            Assert.PropertyChanged(fm, "Price", () =>
+            {
+                fm.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(fm, "Price", () =>
+            {
+                fm.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var fm = new FriedMiraak();
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Small;
+            });
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = Size.Large;
+            });
+        }
+
         [Fact]
         public void ShouldBeAssignableToAbstractIOrderItem()
         {

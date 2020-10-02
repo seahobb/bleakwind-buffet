@@ -10,17 +10,17 @@
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Philly Poacher" HorizontalAlignment="Center" FontSize="25"/>
-                <CheckBox Name="Sirloin" IsChecked="true" Content="Sirloin" Width="230" FontSize="14">
+                <CheckBox Name="Sirloin" IsChecked="{Binding Path=Sirloin}" Content="Sirloin" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Onion" IsChecked="true" Content="Onion" Width="230" FontSize="14">
+                <CheckBox Name="Onion" IsChecked="{Binding Path=Onion}" Content="Onion" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Roll" IsChecked="true" Content="Roll" Width="230" FontSize="14">
+                <CheckBox Name="Roll" IsChecked="{Binding Path=Roll}" Content="Roll" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>

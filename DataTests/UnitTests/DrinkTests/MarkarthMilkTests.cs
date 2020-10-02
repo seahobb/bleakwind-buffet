@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler
+ * Edited by: Ethan Wheeler on 10/1/2020
  * Class: MarkarthMilkTests.cs
  * Purpose: Test the MarkarthMilk.cs class in the Data library
  */
@@ -10,11 +10,101 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interfaces;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class MarkarthMilkTests
     {
+        [Fact]
+        public void ClassShouldImplementINotifyPropertyChangedInterface()
+        {
+            var mm = new MarkarthMilk();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(mm);
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Ice", () =>
+            {
+                mm.Ice = true;
+            });
+            Assert.PropertyChanged(mm, "Ice", () =>
+            {
+                mm.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesSpecialInstructionsProperty()
+        {
+            var mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "SpecialInstructions", () =>
+            {
+                mm.Ice = true;
+            });
+            Assert.PropertyChanged(mm, "SpecialInstructions", () =>
+            {
+                mm.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Size", () =>
+            {
+                mm.Size = Size.Small;
+            });
+            Assert.PropertyChanged(mm, "Size", () =>
+            {
+                mm.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(mm, "Size", () =>
+            {
+                mm.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesPriceProperty()
+        {
+            var mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Price", () =>
+            {
+                mm.Size = Size.Small;
+            });
+            Assert.PropertyChanged(mm, "Price", () =>
+            {
+                mm.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(mm, "Price", () =>
+            {
+                mm.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingSizeNotifiesCaloriesProperty()
+        {
+            var mm = new MarkarthMilk();
+            Assert.PropertyChanged(mm, "Calories", () =>
+            {
+                mm.Size = Size.Small;
+            });
+            Assert.PropertyChanged(mm, "Calories", () =>
+            {
+                mm.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(mm, "Calories", () =>
+            {
+                mm.Size = Size.Large;
+            });
+        }
+
         [Fact]
         public void ShouldBeAssignableToAbstractIOrderItem()
         {

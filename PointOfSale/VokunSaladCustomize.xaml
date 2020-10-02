@@ -10,17 +10,17 @@
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Vokun Salad" HorizontalAlignment="Center" FontSize="25"/>
-                <RadioButton Name="Small" IsChecked="false" Content="Small" Width="230" FontSize="14">
+                <RadioButton Name="Small" IsChecked="{Binding Path=Size}" Content="Small" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton Name="Medium" IsChecked="false" Content="Medium" Width="230" FontSize="14">
+                <RadioButton Name="Medium" IsChecked="{Binding Path=Size}" Content="Medium" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton Name="Large" IsChecked="false" Content="Large" Width="230" FontSize="14">
+                <RadioButton Name="Large" IsChecked="{Binding Path=Size}" Content="Large" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>

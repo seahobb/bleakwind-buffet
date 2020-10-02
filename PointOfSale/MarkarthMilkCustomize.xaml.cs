@@ -1,9 +1,11 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/1/2020
  * Class name: MarkarthMilkCustomize.xaml.cs
  * Purpose: Class used to represent a Markarth Milk drink customization screen
  */
 
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,11 +27,21 @@ namespace PointOfSale
     public partial class MarkarthMilkCustomize : UserControl
     {
         /// <summary>
+        /// Variable to represent a MarkarthMilk instance
+        /// </summary>
+        MarkarthMilk mm;
+
+        /// <summary>
         /// Creates the UI customization screen
         /// </summary>
         public MarkarthMilkCustomize()
         {
             InitializeComponent();
+            mm = new MarkarthMilk();
+            mm.Ice = false; 
+            mm.Size = BleakwindBuffet.Data.Enums.Size.Small;
+
+            this.DataContext = mm;
         }
 
         /// <summary>
