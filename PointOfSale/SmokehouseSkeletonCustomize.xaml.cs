@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: SmokehouseSkeletonCustomize.xaml.cs
  * Purpose: Class used to represent a Smokehouse Skeleton entree customization screen
  */
@@ -29,32 +29,23 @@ namespace PointOfSale
         /// <summary>
         /// Variable to represent a SmokehouseSkeleton instance
         /// </summary>
-        SmokehouseSkeleton ss;
+        SmokehouseSkeleton shs;
 
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public SmokehouseSkeletonCustomize()
+        public SmokehouseSkeletonCustomize(SmokehouseSkeleton shs)
         {
             InitializeComponent();
-            ss = new SmokehouseSkeleton();
-            ss.Egg = true;
-            ss.HashBrowns = true;
-            ss.Pancake = true;
-            ss.SausageLink = true;
+            shs.Egg = true;
+            shs.HashBrowns = true;
+            shs.Pancake = true;
+            shs.SausageLink = true;
 
-            this.DataContext = ss;
+            shsGrid.DataContext = shs;
+            this.shs = shs;
         }
 
-        /// <summary>
-        /// Event handler to customize Smokehouse Skeleton
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            SkeletonContainerBorder.Child = new MenuSelectionComponent();
-        }
+        
     }
 }

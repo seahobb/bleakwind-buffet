@@ -6,36 +6,38 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-    <Canvas Background="White">
-        <StackPanel>
-            <Label Content="Customize Briarheart Burger" HorizontalAlignment="Center" FontSize="25"/>
-            <CheckBox Name="Bun" IsChecked="{Binding Path=Bun}" Content="Bun" Width="230" FontSize="14">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                </CheckBox.LayoutTransform>
-            </CheckBox>
-            <CheckBox Name="Ketchup" IsChecked="{Binding Path=Ketchup}" Content="Ketchup" Width="230" FontSize="14">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                </CheckBox.LayoutTransform>
-            </CheckBox>
-            <CheckBox Name="Mustard" IsChecked="{Binding Path=Mustard}" Content="Mustard" Width="230" FontSize="14">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                </CheckBox.LayoutTransform>
-            </CheckBox>
-            <CheckBox Name="Pickle" IsChecked="{Binding Path=Pickle}" Content="Pickle" Width="230" FontSize="14">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                </CheckBox.LayoutTransform>
-            </CheckBox>
-            <CheckBox Name="Cheese" IsChecked="{Binding Path=Cheese}" Content="Cheese" Width="230" FontSize="14">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                </CheckBox.LayoutTransform>
-            </CheckBox>
-            <Button Click="Done" Content="Done" Margin="400, 130, 0, 0" Width="80" Height="60"/>
-        </StackPanel>
-        <Border Name="BurgerContainerBorder" Width="600" Height="450"/>
-    </Canvas>
+    <Grid Name="bbGrid">
+        <Canvas Background="White">
+            <StackPanel>
+                <Label Content="Customize Briarheart Burger" HorizontalAlignment="Center" FontSize="25"/>
+                <CheckBox Name="Bun" IsChecked="{Binding Path=Bun}" Content="Bun" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Ketchup" IsChecked="{Binding Path=Ketchup}" Content="Ketchup" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Mustard" IsChecked="{Binding Path=Mustard}" Content="Mustard" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Pickle" IsChecked="{Binding Path=Pickle}" Content="Pickle" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox Name="Cheese" IsChecked="{Binding Path=Cheese}" Content="Cheese" Width="230" FontSize="14">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </StackPanel>
+            <Border Name="BurgerContainerBorder" Width="600" Height="450"/>
+        </Canvas>
+    </Grid>
+    
 </UserControl>

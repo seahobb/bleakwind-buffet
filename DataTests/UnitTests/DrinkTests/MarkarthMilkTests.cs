@@ -198,5 +198,117 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             mm.Size = size;
             Assert.Equal(name, mm.ToString());
         }
+
+        [Fact]
+        public void ChangingSizeChangedShouldChangeProperty()
+        {
+            MarkarthMilk x = new MarkarthMilk();
+            Assert.PropertyChanged(x, "SizeChangedSmall", () =>
+            {
+                x.SizeChangedSmall = true;
+            });
+            Assert.PropertyChanged(x, "SizeChangedMedium", () =>
+            {
+                x.SizeChangedMedium = true;
+            });
+            Assert.PropertyChanged(x, "SizeChangedLarge", () =>
+            {
+                x.SizeChangedLarge = true;
+            });
+        }
+
+        [Fact]
+        public void NameShouldReturnToString()
+        {
+            MarkarthMilk x = new MarkarthMilk();
+            Assert.Equal(x.ToString(), x.Name);
+        }
+
+        [Fact]
+        public void ChangingIceShouldChangeProperties()
+        {
+            MarkarthMilk x = new MarkarthMilk();
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Ice = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingSizeShouldChangeProperties()
+        {
+            MarkarthMilk x = new MarkarthMilk();
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Large;
+            });
+        }
+
+        
     }
 }

@@ -264,5 +264,137 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.Equal("Garden Orc Omelette", goo.ToString());
         }
+
+        [Fact]
+        public void NameShouldReturnToString()
+        {
+            ThalmorTriple x = new ThalmorTriple();
+            Assert.Equal(x.ToString(), x.Name);
+        }
+
+
+        [Fact]
+        public void ChangingBroccoliShouldChangeProperties()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Broccoli", () =>
+            {
+                x.Broccoli = true;
+            });
+            Assert.PropertyChanged(x, "Broccoli", () =>
+            {
+                x.Broccoli = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Broccoli = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Broccoli = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Broccoli = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Broccoli = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingMushroomsShouldChangeProperties()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Mushrooms", () =>
+            {
+                x.Mushrooms = true;
+            });
+            Assert.PropertyChanged(x, "Mushrooms", () =>
+            {
+                x.Mushrooms = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Mushrooms = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Mushrooms = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Mushrooms = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Mushrooms = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingTomatoShouldChangeProperties()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Tomato", () =>
+            {
+                x.Tomato = true;
+            });
+            Assert.PropertyChanged(x, "Tomato", () =>
+            {
+                x.Tomato = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Tomato = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Tomato = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Tomato = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Tomato = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingCheddarShouldChangeProperties()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.PropertyChanged(x, "Cheddar", () =>
+            {
+                x.Cheddar = true;
+            });
+            Assert.PropertyChanged(x, "Cheddar", () =>
+            {
+                x.Cheddar = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Cheddar = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Cheddar = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Cheddar = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Cheddar = false;
+            });
+
+        }
     }
 }

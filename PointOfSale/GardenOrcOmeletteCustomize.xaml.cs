@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/11/2020
  * Class name: GardenOrcOmeletteCustomize.xaml.cs
  * Purpose: Class used to represent a Garden Orc Omelette entree customization screen
  */
@@ -33,27 +34,18 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public GardenOrcOmeletteCustomize()
+        public GardenOrcOmeletteCustomize(GardenOrcOmelette goo)
         {
             InitializeComponent();
-            goo = new GardenOrcOmelette();
             goo.Broccoli = true;
             goo.Cheddar = true;
             goo.Mushrooms = true;
             goo.Tomato = true;
+            gooGrid.DataContext = goo;
 
-            this.DataContext = goo;
+            this.goo = goo;
         }
 
-        /// <summary>
-        /// Event handler to customize Garden Orc Omelette
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            OmeletteContainerBorder.Child = new MenuSelectionComponent();
-        }
+       
     }
 }

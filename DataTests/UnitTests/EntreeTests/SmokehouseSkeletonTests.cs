@@ -264,5 +264,137 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
             Assert.Equal("Smokehouse Skeleton", ss.ToString());
         }
+
+        [Fact]
+        public void NameShouldReturnToString()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.Equal(x.ToString(), x.Name);
+        }
+
+
+        [Fact]
+        public void ChangingSausageShouldChangeProperties()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "SausageLink", () =>
+            {
+                x.SausageLink = true;
+            });
+            Assert.PropertyChanged(x, "SausageLink", () =>
+            {
+                x.SausageLink = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.SausageLink = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.SausageLink = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.SausageLink = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.SausageLink = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingEggShouldChangeProperties()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "Egg", () =>
+            {
+                x.Egg = true;
+            });
+            Assert.PropertyChanged(x, "Egg", () =>
+            {
+                x.Egg = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Egg = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Egg = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Egg = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Egg = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingHashBrownsShouldChangeProperties()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "HashBrowns", () =>
+            {
+                x.HashBrowns = true;
+            });
+            Assert.PropertyChanged(x, "HashBrowns", () =>
+            {
+                x.HashBrowns = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.HashBrowns = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.HashBrowns = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.HashBrowns = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.HashBrowns = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingPancakeShouldChangeProperties()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.PropertyChanged(x, "Pancake", () =>
+            {
+                x.Pancake = true;
+            });
+            Assert.PropertyChanged(x, "Pancake", () =>
+            {
+                x.Pancake = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Pancake = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Pancake = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Pancake = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Pancake = false;
+            });
+
+        }
     }
 }

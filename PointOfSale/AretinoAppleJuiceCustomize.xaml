@@ -6,21 +6,21 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-    <Grid>
+    <Grid Name="ajGrid">
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Aretino Apple Juice" HorizontalAlignment="Center" FontSize="25"/>
-                <RadioButton Name="Small" IsChecked="{Binding Path=Size}" Content="Small" Width="230" FontSize="14">
+                <RadioButton Name="Small" IsChecked="{Binding Path=SizeChangedSmall}" Content="Small" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton Name="Medium" IsChecked="{Binding Path=Size}" Content="Medium" Width="230" FontSize="14">
+                <RadioButton Name="Medium" IsChecked="{Binding Path=SizeChangedMedium}" Content="Medium" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton Name="Large" IsChecked="{Binding Path=Size}" Content="Large" Width="230" FontSize="14">
+                <RadioButton Name="Large" IsChecked="{Binding Path=SizeChangedLarge}" Content="Large" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
@@ -30,7 +30,7 @@
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <Button Click="Done" Content="Done" Margin="400, 150, 0, 0" Width="80" Height="60"/>
+                
             </StackPanel>
             <Border Name="JuiceContainerBorder" Width="600" Height="450"/>
         </Canvas>

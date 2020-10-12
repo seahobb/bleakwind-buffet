@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: GardenOrcOmelette.cs
  * Purpose: Class used to represent a Garden Orc Omelette entree
  */
@@ -54,6 +54,7 @@ namespace BleakwindBuffet.Data.Entrees
                 broccoli = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -68,6 +69,7 @@ namespace BleakwindBuffet.Data.Entrees
                 mushrooms = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -82,6 +84,7 @@ namespace BleakwindBuffet.Data.Entrees
                 tomato = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -96,6 +99,7 @@ namespace BleakwindBuffet.Data.Entrees
                 cheddar = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -132,6 +136,36 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!cheddar)
                     list.Add("Hold cheddar");
                 return list;
+            }
+        }
+
+        /// <summary>
+        /// Converts special instructions list to a string
+        /// </summary>
+        public string ListToString
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("[");
+                for (int i = 0; i < SpecialInstructions.Count; i++)
+                {
+                    sb.Append(SpecialInstructions[i] + " ");
+                }
+                sb.Append("]");
+                string s = sb.ToString();
+                return s;
+            }
+        }
+
+        /// <summary>
+        /// Property representing ToString
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
             }
         }
 

@@ -272,9 +272,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Theory]
-        [InlineData(true, Size.Small, "Small Decaf Candlehearth Coffee")]
-        [InlineData(true, Size.Medium, "Medium Decaf Candlehearth Coffee")]
-        [InlineData(true, Size.Large, "Large Decaf Candlehearth Coffee")]
+        [InlineData(true, Size.Small, "Small Candlehearth Coffee")]
+        [InlineData(true, Size.Medium, "Medium Candlehearth Coffee")]
+        [InlineData(true, Size.Large, "Large Candlehearth Coffee")]
         [InlineData(false, Size.Small, "Small Candlehearth Coffee")]
         [InlineData(false, Size.Medium, "Medium Candlehearth Coffee")]
         [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
@@ -284,6 +284,178 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             cc.Size = size;
             cc.Decaf = decaf;
             Assert.Equal(name, cc.ToString());
+        }
+
+        [Fact]
+        public void ChangingSizeChangedShouldChangeProperty()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "SizeChangedSmall", () =>
+            {
+                x.SizeChangedSmall = true;
+            });
+            Assert.PropertyChanged(x, "SizeChangedMedium", () =>
+            {
+                x.SizeChangedMedium = true;
+            });
+            Assert.PropertyChanged(x, "SizeChangedLarge", () =>
+            {
+                x.SizeChangedLarge = true;
+            });
+        }
+
+        [Fact]
+        public void NameShouldReturnToString()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.Equal(x.ToString(), x.Name);
+        }
+
+        [Fact]
+        public void ChangingIceShouldChangeProperties()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Ice = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingSizeShouldChangeProperties()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingCreamShouldChangeProperties()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "RoomForCream", () =>
+            {
+                x.RoomForCream = true;
+            });
+            Assert.PropertyChanged(x, "RoomForCream", () =>
+            {
+                x.RoomForCream = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.RoomForCream = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.RoomForCream = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.RoomForCream = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.RoomForCream = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingDecafShouldChangeProperties()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.PropertyChanged(x, "Decaf", () =>
+            {
+                x.Decaf = true;
+            });
+            Assert.PropertyChanged(x, "Decaf", () =>
+            {
+                x.Decaf = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Decaf = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Decaf = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Decaf = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Decaf = false;
+            });
+
         }
     }
 }

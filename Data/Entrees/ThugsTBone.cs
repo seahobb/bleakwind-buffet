@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/11/2020
  * Class name: ThugsTBone.cs
  * Purpose: Class used to represent a Thugs T-Bone entree
  */
@@ -7,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 using BleakwindBuffet.Data.Interfaces;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -14,8 +16,9 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Represents the Thugs T-Bone 
     /// </summary>
-    public class ThugsTBone : Entree, IOrderItem
+    public class ThugsTBone : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Property to get entree price
         /// </value>
@@ -40,6 +43,17 @@ namespace BleakwindBuffet.Data.Entrees
             get
             {
                 return new List<String>();
+            }
+        }
+
+        /// <summary>
+        /// Property representing ToString
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
             }
         }
 

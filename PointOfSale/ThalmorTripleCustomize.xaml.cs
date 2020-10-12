@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: ThalmorTripleCustomize.xaml.cs
  * Purpose: Class used to represent a Thalmor Triple entree customization screen
  */
@@ -34,10 +34,9 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public ThalmorTripleCustomize()
+        public ThalmorTripleCustomize(ThalmorTriple tt)
         {
             InitializeComponent();
-            tt = new ThalmorTriple();
             tt.Bun = true;
             tt.Ketchup = true;
             tt.Mustard = true;
@@ -49,18 +48,10 @@ namespace PointOfSale
             tt.Bacon = true;
             tt.Egg = true;
 
-            this.DataContext = tt;
+            ttGrid.DataContext = tt;
+            this.tt = tt;
         }
 
-        /// <summary>
-        /// Event handler to customize Thalmor Triple
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            TripleContainerBorder.Child = new MenuSelectionComponent();
-        }
+        
     }
 }

@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 9/30/2020
+ * Modified On: 10/11/2020
  * Class name: CandlehearthCoffeeCustomize.xaml.cs
  * Purpose: Class used to represent a Candlehearth Coffee drink customization screen
  */
@@ -34,27 +34,18 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public CandlehearthCoffeeCustomize()
+        public CandlehearthCoffeeCustomize(CandlehearthCoffee cc)
         {
             InitializeComponent();
-            cc = new CandlehearthCoffee();
             cc.Ice = false;
             cc.RoomForCream = false;
             cc.Decaf = false;
             cc.Size = BleakwindBuffet.Data.Enums.Size.Small;
+            ccGrid.DataContext = cc;
 
-            this.DataContext = cc;
+            this.cc = cc;
         }
 
-        /// <summary>
-        /// Event handler to customize Candlehearth Coffee
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            CoffeeContainerBorder.Child = new MenuSelectionComponent();
-        }
+        
     }
 }

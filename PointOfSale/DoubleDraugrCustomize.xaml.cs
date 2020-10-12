@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: DoubleDraugrCustomize.xaml.cs
  * Purpose: Class used to represent a Double Draugr entree customization screen
  */
@@ -34,10 +34,9 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public DoubleDraugrCustomize()
+        public DoubleDraugrCustomize(DoubleDraugr dd)
         {
             InitializeComponent();
-            dd = new DoubleDraugr();
             dd.Bun = true;
             dd.Ketchup = true;
             dd.Mustard = true;
@@ -46,19 +45,10 @@ namespace PointOfSale
             dd.Tomato = true;
             dd.Lettuce = true;
             dd.Mayo = true;
-
-            this.DataContext = dd;
+            ddGrid.DataContext = dd;
+            this.dd = dd;
         }
 
-        /// <summary>
-        /// Event handler to customize Double Draugr
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            DraugrContainerBorder.Child = new MenuSelectionComponent();
-        }
+       
     }
 }

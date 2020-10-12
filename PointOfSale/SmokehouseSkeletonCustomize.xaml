@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-    <Grid>
+    <Grid Name="shsGrid">
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Smokehouse Skeleton" HorizontalAlignment="Center" FontSize="25"/>
@@ -30,7 +30,6 @@
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <Button Click="Done" Content="Done" Margin="440, 150, 0, 0" Width="80" Height="60"/>
             </StackPanel>
             <Border Name="SkeletonContainerBorder" Width="600" Height="450"/>
         </Canvas>

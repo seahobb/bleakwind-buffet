@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
+ * Modified On: 10/11/2020
  * Class name: PhillyPoacher.cs
  * Purpose: Class used to represent a Philly Poacher entree
  */
@@ -48,6 +49,7 @@ namespace BleakwindBuffet.Data.Entrees
                 sirloin = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -62,6 +64,7 @@ namespace BleakwindBuffet.Data.Entrees
                 onion = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -76,6 +79,7 @@ namespace BleakwindBuffet.Data.Entrees
                 roll = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -110,6 +114,36 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!roll)
                     list.Add("Hold roll");
                 return list;
+            }
+        }
+
+        /// <summary>
+        /// Converts special instructions list to a string
+        /// </summary>
+        public string ListToString
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("[");
+                for (int i = 0; i < SpecialInstructions.Count; i++)
+                {
+                    sb.Append(SpecialInstructions[i] + " ");
+                }
+                sb.Append("]");
+                string s = sb.ToString();
+                return s;
+            }
+        }
+
+        /// <summary>
+        /// Property representing ToString
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
             }
         }
 

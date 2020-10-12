@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: MadOtarGritsCustomize.xaml.cs
  * Purpose: Class used to represent a Mad Otar Grits side customization screen
  */
@@ -34,24 +34,15 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public MadOtarGritsCustomize()
+        public MadOtarGritsCustomize(MadOtarGrits mog)
         {
             InitializeComponent();
-            mog = new MadOtarGrits();
             mog.Size = BleakwindBuffet.Data.Enums.Size.Small;
+            mogGrid.DataContext = mog;
 
-            this.DataContext = mog;
+            this.mog = mog;
         }
 
-        /// <summary>
-        /// Event handler to customize Mad Otar Grits
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            GritsContainerBorder.Child = new MenuSelectionComponent();
-        }
+        
     }
 }

@@ -198,5 +198,124 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             aj.Size = size;
             Assert.Equal(name, aj.ToString());
         }
+
+       
+        [Fact]
+        public void ChangingSizeChangedShouldChangeProperty()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "SizeChangedSmall", () =>
+            {
+                aj.SizeChangedSmall = true;
+            });
+            Assert.PropertyChanged(aj, "SizeChangedMedium", () =>
+            {
+                aj.SizeChangedMedium = true;
+            });
+            Assert.PropertyChanged(aj, "SizeChangedLarge", () =>
+            {
+                aj.SizeChangedLarge = true;
+            });
+        }
+
+        [Fact]
+        public void NameShouldReturnToString()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.Equal(aj.ToString(), aj.Name);
+        }
+
+        [Fact]
+        public void ChangingIceShouldChangeProperties()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = true;
+            });
+            Assert.PropertyChanged(aj, "Ice", () =>
+            {
+                aj.Ice = false;
+            });
+            Assert.PropertyChanged(aj, "SpecialInstructions", () =>
+            {
+                aj.Ice = true;
+            });
+            Assert.PropertyChanged(aj, "SpecialInstructions", () =>
+            {
+                aj.Ice = false;
+            });
+            Assert.PropertyChanged(aj, "ListToString", () =>
+            {
+                aj.Ice = true;
+            });
+            Assert.PropertyChanged(aj, "ListToString", () =>
+            {
+                aj.Ice = false;
+            });
+
+        }
+        
+        [Fact]
+        public void ChangingSizeShouldChangeProperties()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.PropertyChanged(aj, "Size", () =>
+            {
+                aj.Size = Size.Large;
+            });
+            Assert.PropertyChanged(aj, "Size", () =>
+            {
+                aj.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(aj, "Size", () =>
+            {
+                aj.Size = Size.Large;
+            });
+            Assert.PropertyChanged(aj, "Name", () =>
+            {
+                aj.Size = Size.Large;
+            });
+            Assert.PropertyChanged(aj, "Name", () =>
+            {
+                aj.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(aj, "Name", () =>
+            {
+                aj.Size = Size.Large;
+            });
+            Assert.PropertyChanged(aj, "Price", () =>
+            {
+                aj.Size = Size.Large;
+            });
+            Assert.PropertyChanged(aj, "Price", () =>
+            {
+                aj.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(aj, "Price", () =>
+            {
+                aj.Size = Size.Large;
+            });
+            Assert.PropertyChanged(aj, "Calories", () =>
+            {
+                aj.Size = Size.Large;
+            });
+            Assert.PropertyChanged(aj, "Calories", () =>
+            {
+                aj.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(aj, "Calories", () =>
+            {
+                aj.Size = Size.Large;
+            });
+        }
+
+
+
+        //how to know if to use these tests above:
+        //ice (invoke)
+        //size (invoke)
+
+        //ice, more properties to notify that are unique to each menu item...
     }
 }

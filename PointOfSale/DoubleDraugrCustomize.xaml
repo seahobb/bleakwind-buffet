@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-    <Grid>
+    <Grid Name="ddGrid">
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Double Draugr" HorizontalAlignment="Center" FontSize="25"/>
@@ -15,42 +15,41 @@
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Ketchup" IsChecked="{Binding Path=Bun}" Content="Ketchup" Width="230" FontSize="14">
+                <CheckBox Name="Ketchup" IsChecked="{Binding Path=Ketchup}" Content="Ketchup" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Mustard" IsChecked="{Binding Path=Bun}" Content="Mustard" Width="230" FontSize="14">
+                <CheckBox Name="Mustard" IsChecked="{Binding Path=Mustard}" Content="Mustard" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Pickle" IsChecked="{Binding Path=Bun}" Content="Pickle" Width="230" FontSize="14">
+                <CheckBox Name="Pickle" IsChecked="{Binding Path=Pickle}" Content="Pickle" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Cheese" IsChecked="{Binding Path=Bun}" Content="Cheese" Width="230" FontSize="14">
+                <CheckBox Name="Cheese" IsChecked="{Binding Path=Cheese}" Content="Cheese" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Tomato" IsChecked="{Binding Path=Bun}" Content="Tomato" Width="230" FontSize="14">
+                <CheckBox Name="Tomato" IsChecked="{Binding Path=Tomato}" Content="Tomato" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Lettuce" IsChecked="{Binding Path=Bun}" Content="Lettuce" Width="230" FontSize="14">
+                <CheckBox Name="Lettuce" IsChecked="{Binding Path=Lettuce}" Content="Lettuce" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <CheckBox Name="Mayo" IsChecked="{Binding Path=Bun}" Content="Mayo" Width="230" FontSize="14">
+                <CheckBox Name="Mayo" IsChecked="{Binding Path=Mayo}" Content="Mayo" Width="230" FontSize="14">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <Button Click="Done" Content="Done" Margin="400, 10, 0, 0" Width="80" Height="60"/>
             </StackPanel>
             <Border Name="DraugrContainerBorder" Width="600" Height="450"/>
         </Canvas>

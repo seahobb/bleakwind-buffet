@@ -253,5 +253,146 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             ww.Size = size;
             Assert.Equal(name, ww.ToString());
         }
+
+        [Fact]
+        public void ChangingSizeChangedShouldChangeProperty()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.PropertyChanged(x, "SizeChangedSmall", () =>
+            {
+                x.SizeChangedSmall = true;
+            });
+            Assert.PropertyChanged(x, "SizeChangedMedium", () =>
+            {
+                x.SizeChangedMedium = true;
+            });
+            Assert.PropertyChanged(x, "SizeChangedLarge", () =>
+            {
+                x.SizeChangedLarge = true;
+            });
+        }
+
+        [Fact]
+        public void NameShouldReturnToString()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.Equal(x.ToString(), x.Name);
+        }
+
+        [Fact]
+        public void ChangingIceShouldChangeProperties()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Ice = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingSizeShouldChangeProperties()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingLemonShouldChangeProperties()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.PropertyChanged(x, "Lemon", () =>
+            {
+                x.Lemon = true;
+            });
+            Assert.PropertyChanged(x, "Lemon", () =>
+            {
+                x.Lemon = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Lemon = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Lemon = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Lemon = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Lemon = false;
+            });
+
+        }
     }
 }

@@ -1,13 +1,10 @@
 ﻿/*
  * Author: Ethan Wheeler
  * Modified On: 10/11/2020
- * Class name: MenuSelectionComponent.xaml.cs
- * Purpose: Class used to represent the menu selection screen
+ * Class name: ComboScreen.xaml.cs
+ * Purpose: Class used to represent a combo selection screen
  */
 
-using BleakwindBuffet.Data.Entrees;
-using BleakwindBuffet.Data.Sides;
-using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,35 +18,40 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
-using System.Windows.Media.Converters;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Sides;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MenuSelectionComponent.xaml
+    /// Interaction logic for ComboScreen.xaml
     /// </summary>
-    public partial class MenuSelectionComponent : UserControl
+    public partial class ComboScreen : UserControl
     {
+       
         /// <summary>
-        /// Creates UI menu selection screen
+        /// Creates the UI customization screen 
         /// </summary>
-        public MenuSelectionComponent()
+        public ComboScreen()
         {
             InitializeComponent();
-            //this.DataContext = this;
+            
+            //comboGrid.DataContext = comboObj;
+            
         }
 
         /// <summary>
-        /// Event handler to add thugs t bone to order
+        /// Event handler for entree button press
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void ThugsTBone(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
                 ThugsTBone ttb = new ThugsTBone();
-                o.Add(ttb);
+                c.Entree = ttb;
             }
         }
 
@@ -60,10 +62,10 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void BriarheartBurger(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
                 BriarheartBurger bb = new BriarheartBurger();
-                o.Add(bb);
+                c.Entree = bb;
                 ContainerBorder.Child = new BriarheartBurgerCustomize(bb);
             }
 
@@ -77,11 +79,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void DoubleDraugr(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 DoubleDraugr dd = new DoubleDraugr();
-                o.Add(dd);
+                c.Entree = dd;
                 ContainerBorder.Child = new DoubleDraugrCustomize(dd);
 
             }
@@ -94,11 +96,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void GardenOrcOmelette(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 GardenOrcOmelette goo = new GardenOrcOmelette();
-                o.Add(goo);
+                c.Entree = goo;
                 ContainerBorder.Child = new GardenOrcOmeletteCustomize(goo);
 
             }
@@ -111,11 +113,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void PhillyPoacher(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 PhillyPoacher pp = new PhillyPoacher();
-                o.Add(pp);
+                c.Entree = pp;
                 ContainerBorder.Child = new PhillyPoacherCustomize(pp);
 
             }
@@ -128,16 +130,16 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void SmokehouseSkeleton(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 SmokehouseSkeleton shs = new SmokehouseSkeleton();
-                o.Add(shs);
+                c.Entree = shs;
                 ContainerBorder.Child = new SmokehouseSkeletonCustomize(shs);
 
             }
         }
-        
+
         /// <summary>
         /// Event handler to customize Thalmor Triple
         /// </summary>
@@ -145,16 +147,16 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void ThalmorTriple(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 ThalmorTriple tt = new ThalmorTriple();
-                o.Add(tt);
+                c.Entree = tt;
                 ContainerBorder.Child = new ThalmorTripleCustomize(tt);
 
             }
         }
-        
+
         /// <summary>
         /// Event handler to customize Aretino Apple Juice
         /// </summary>
@@ -162,15 +164,15 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void AretinoAppleJuice(object sender, RoutedEventArgs e)
         {
-         
 
-            if (DataContext is Order o)
+
+            if (DataContext is Combo c)
             {
-    
+
                 AretinoAppleJuice aj = new AretinoAppleJuice(); //i want to use this object for removing it later
-                o.Add(aj); 
+                c.Drink = aj;
                 ContainerBorder.Child = new AretinoAppleJuiceCustomize(aj); //i want to use this value for customizing again
-           
+
             }
 
             // ContainerBorder.Child = new AretinoAppleJuiceCustomize();
@@ -183,15 +185,15 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void CandlehearthCoffee(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 CandlehearthCoffee cc = new CandlehearthCoffee(); //i want to use this object for removing it later
-                o.Add(cc);
+                c.Drink = cc;
                 ContainerBorder.Child = new CandlehearthCoffeeCustomize(cc); //i want to use this value for customizing again
 
             }
-           
+
         }
 
         /// <summary>
@@ -201,15 +203,15 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void MarkarthMilk(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 MarkarthMilk mm = new MarkarthMilk(); //i want to use this object for removing it later
-                o.Add(mm);
+                c.Drink = mm;
                 ContainerBorder.Child = new MarkarthMilkCustomize(mm); ; //i want to use this value for customizing again
 
             }
-            
+
         }
 
         /// <summary>
@@ -219,11 +221,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void SailorSoda(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
-                SailorSoda ss = new SailorSoda(); 
-                o.Add(ss);
+                SailorSoda ss = new SailorSoda();
+                c.Drink = ss;
                 ContainerBorder.Child = new SailorSodaCustomize(ss);
 
             }
@@ -236,11 +238,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void WarriorWater(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 WarriorWater ww = new WarriorWater();
-                o.Add(ww);
+                c.Drink = ww;
                 ContainerBorder.Child = new WarriorWaterCustomize(ww);
 
             }
@@ -253,11 +255,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void DragonbornWaffleFries(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 DragonbornWaffleFries dwf = new DragonbornWaffleFries();
-                o.Add(dwf);
+                c.Side = dwf;
                 ContainerBorder.Child = new DragonbornWaffleFriesCustomize(dwf);
 
             }
@@ -270,11 +272,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void FriedMiraak(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 FriedMiraak fm = new FriedMiraak();
-                o.Add(fm);
+                c.Side = fm;
                 ContainerBorder.Child = new FriedMiraakCustomize(fm);
 
             }
@@ -287,11 +289,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void MadOtarGrits(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 MadOtarGrits mog = new MadOtarGrits();
-                o.Add(mog);
+                c.Side = mog;
                 ContainerBorder.Child = new MadOtarGritsCustomize(mog);
 
             }
@@ -304,11 +306,11 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void VokunSalad(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order o)
+            if (DataContext is Combo c)
             {
 
                 VokunSalad vs = new VokunSalad();
-                o.Add(vs);
+                c.Side = vs;
                 ContainerBorder.Child = new VokunSaladCustomize(vs);
 
             }
@@ -319,64 +321,20 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void ReturnToMenu (object sender, RoutedEventArgs e)
-        {
-            ComboButton.IsEnabled = true;
-            ContainerBorder.Child = null;
-        }
-
-        /// <summary>
-        /// Private backing variable for combo screen instance
-        /// </summary>
-        private ComboScreen cs;
-        
-        /// <summary>
-        /// Private backing variable for combo instance
-        /// </summary>
-        private Combo c;
-
-        /// <summary>
-        /// Event handler for create combo button press
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void CreateCombo(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order o)
-            {
-                c = new Combo(); 
-                
-                ComboButton.IsEnabled = false;
-                
-                AddComboButton.IsEnabled = true;
-                RetrunToComboSelection.IsEnabled = true;
-                cs = new ComboScreen();
-                ContainerBorder.Child = cs;
-            }
-            
-        }
-
-        /// <summary>
-        /// Event handler for add combo to order button press 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void AddComboToOrder(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is Order o)
-            {
-                o.Add(c);
-            }
-        }
-
-        /// <summary>
-        /// Event handler for return to combo selection button press
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void ReturnToComboSelection(object sender, RoutedEventArgs e)
+        void ReturnToMenu(object sender, RoutedEventArgs e)
         {
             ContainerBorder.Child = null;
         }
+
+        /// <summary>
+        /// Event handler for changing a selected item in the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void ChangeItemSelection(object sender, SelectionChangedEventArgs e)
+        { }
+    
     }
+
+    
 }

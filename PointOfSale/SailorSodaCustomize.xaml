@@ -6,21 +6,21 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-    <Grid>
+    <Grid Name="ssGrid">
         <Canvas Background="White">
             <StackPanel>
                 <Label Content="Customize Sailor Soda" HorizontalAlignment="Center" FontSize="25"/>
-                <RadioButton GroupName="g1" Name="Small" IsChecked="{Binding Path=Size}" Content="Small" Width="230" FontSize="14">
+                <RadioButton GroupName="g1" Name="Small" IsChecked="{Binding Path=SizeChangedSmall}" Content="Small" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton GroupName="g1" Name="Medium" IsChecked="{Binding Path=Size}" Content="Medium" Width="230" FontSize="14">
+                <RadioButton GroupName="g1" Name="Medium" IsChecked="{Binding Path=SizeChangedMedium}" Content="Medium" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton GroupName="g1" Name="Large" IsChecked="{Binding Path=Size}" Content="Large" Width="230" FontSize="14">
+                <RadioButton GroupName="g1" Name="Large" IsChecked="{Binding Path=SizeChangedLarge}" Content="Large" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
@@ -30,37 +30,36 @@
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
-                <RadioButton GroupName="g2" Name="Blackberry" IsChecked="{Binding Path=Flavor}" Content="Blackberry" Width="230" FontSize="14">
+                <RadioButton GroupName="g2" Name="Blackberry" IsChecked="{Binding Path=FlavorChangedBlackberry}" Content="Blackberry" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton GroupName="g2" Name="Cherry" IsChecked="{Binding Path=Flavor}" Content="Cherry" Width="230" FontSize="14">
+                <RadioButton GroupName="g2" Name="Cherry" IsChecked="{Binding Path=FlavorChangedCherry}" Content="Cherry" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton GroupName="g2" Name="Grapefruit" IsChecked="{Binding Path=Flavor}" Content="Grapefruit" Width="230" FontSize="14">
+                <RadioButton GroupName="g2" Name="Grapefruit" IsChecked="{Binding Path=FlavorChangedGrapefruit}" Content="Grapefruit" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton GroupName="g2" Name="Lemon" IsChecked="{Binding Path=Flavor}" Content="Lemon" Width="230" FontSize="14">
+                <RadioButton GroupName="g2" Name="Lemon" IsChecked="{Binding Path=FlavorChangedLemon}" Content="Lemon" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton GroupName="g2" Name="Peach" IsChecked="{Binding Path=Flavor}" Content="Peach" Width="230" FontSize="14">
+                <RadioButton GroupName="g2" Name="Peach" IsChecked="{Binding Path=FlavorChangedPeach}" Content="Peach" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <RadioButton GroupName="g2" Name="Watermelon" IsChecked="{Binding Path=Flavor}" Content="Watermelon" Width="230" FontSize="14">
+                <RadioButton GroupName="g2" Name="Watermelon" IsChecked="{Binding Path=FlavorChangedWatermelon}" Content="Watermelon" Width="230" FontSize="14">
                     <RadioButton.LayoutTransform>
                         <ScaleTransform ScaleX="2" ScaleY="2"/>
                     </RadioButton.LayoutTransform>
                 </RadioButton>
-                <Button Click="Done" Content="Done" Margin="400, -60, 0, 0" Width="80" Height="60"/>
             </StackPanel>
             <Border Name="SodaContainerBorder" Width="600" Height="450"/>
         </Canvas>

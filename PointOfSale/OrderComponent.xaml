@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PointOfSale"
-             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:PointOfSale" 
+    mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,26 +15,43 @@
         <local:MenuSelectionComponent/>
 
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="210">
-            <Label Content="Order:" HorizontalAlignment="Center"/>
-            <TextBlock Name="OrderItems"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Order #" VerticalAlignment="Bottom"/>
+                <TextBlock Text="{Binding Path=Number}" Width="100" VerticalAlignment="Center"/>
+            </StackPanel>
+            <ListView Name="OrderListView" ItemsSource="{Binding}" Height="250" SelectionChanged="ChangeItemSelection" IsSynchronizedWithCurrentItem="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Name}" Width="170"/>
+                                <TextBlock Text="{Binding Path=Price}" Width="170"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Path=ListToString}" Width="650" HorizontalAlignment="Left"/>
+                            <Button Name="RemoveButton" Click="RemoveButton" Content="Remove" Width="170" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="210">
             <WrapPanel>
-                <Button Name="CancelOrder" Content="Cancel Order" Margin="7" Height="50" Width="90"/>
+                <!--add click for finish order-->
+                <Button Click="CancelOrder" Content="Cancel Order" Margin="7" Height="50" Width="90"/>
                 <Button Name="FinishOrder" Content="Finish Order" Margin="7" Height="50" Width="90"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Subtotal: $"/>
-                <TextBlock Name="Subtotal" HorizontalAlignment="Left" Width="100"/>
+                <TextBlock Name="Subtotal" HorizontalAlignment="Left" Width="100" Text="{Binding Path=Subtotal}"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Tax: $"/>
-                <TextBlock Name="Tax" HorizontalAlignment="Left" Width="100"/>
+                <TextBlock Name="Tax" HorizontalAlignment="Left" Width="100" Text="{Binding Path=Tax}"/>
             </WrapPanel>
             <WrapPanel>
                 <Label Content="Total: $"/>
-                <TextBlock Name="Total" HorizontalAlignment="Left" Width="100"/>
+                <TextBlock Name="Total" HorizontalAlignment="Left" Width="100" Text="{Binding Path=Total}"/>
             </WrapPanel>
         </StackPanel>
     </Grid>

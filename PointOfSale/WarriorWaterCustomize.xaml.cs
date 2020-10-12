@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: WarriorWaterCustomization.xaml.cs
  * Purpose: Class used to represent a Warrior Water drink customization screen
  */
@@ -34,26 +34,17 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public WarriorWaterCustomize()
+        public WarriorWaterCustomize(WarriorWater ww)
         {
             InitializeComponent();
-            ww = new WarriorWater();
             ww.Ice = true;
             ww.Lemon = false;
             ww.Size = BleakwindBuffet.Data.Enums.Size.Small;
+            wwGrid.DataContext = ww;
 
-            this.DataContext = ww;
+            this.ww = ww;
         }
 
-        /// <summary>
-        /// Event handler to customize Warrior Water
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            WaterContainerBorder.Child = new MenuSelectionComponent();
-        }
+        
     }
 }

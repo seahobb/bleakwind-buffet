@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: BriarheartBurgerCustomize.xaml.cs
  * Purpose: Class used to represent a Briarheart Burger entree customization screen
  */
@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale
 {
@@ -29,33 +30,25 @@ namespace PointOfSale
         /// <summary>
         /// Variable to represent a BriarheartBurger instance
         /// </summary>
-        BriarheartBurger bb;
+        private BriarheartBurger bb;
 
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public BriarheartBurgerCustomize()
+        public BriarheartBurgerCustomize(BriarheartBurger bb)
         {
             InitializeComponent();
-            bb = new BriarheartBurger();
             bb.Bun = true;
             bb.Ketchup = true;
             bb.Mustard = true;
             bb.Pickle = true;
             bb.Cheese = true;
-
-            this.DataContext = bb;
+            bbGrid.DataContext = bb;
+            this.bb = bb;
         }
 
-        /// <summary>
-        /// Event handler to customize Briarheart Burger
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            BurgerContainerBorder.Child = new MenuSelectionComponent();
-        }
+
+        
+        
     }
 }

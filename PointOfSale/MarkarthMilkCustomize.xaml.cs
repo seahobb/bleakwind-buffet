@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: MarkarthMilkCustomize.xaml.cs
  * Purpose: Class used to represent a Markarth Milk drink customization screen
  */
@@ -34,25 +34,16 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public MarkarthMilkCustomize()
+        public MarkarthMilkCustomize(MarkarthMilk mm)
         {
             InitializeComponent();
-            mm = new MarkarthMilk();
             mm.Ice = false; 
             mm.Size = BleakwindBuffet.Data.Enums.Size.Small;
+            mmGrid.DataContext = mm;
 
-            this.DataContext = mm;
+            this.mm = mm;
         }
 
-        /// <summary>
-        /// Event handler to customize Markarth Milk
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            MilkContainerBorder.Child = new MenuSelectionComponent();
-        }
+       
     }
 }

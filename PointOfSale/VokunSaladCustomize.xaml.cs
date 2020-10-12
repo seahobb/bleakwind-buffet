@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: VokunSaladCustomize.xaml.cs
  * Purpose: Class used to represent a Vokun Salad side customization screen
  */
@@ -34,24 +34,15 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public VokunSaladCustomize()
+        public VokunSaladCustomize(VokunSalad vs)
         {
             InitializeComponent();
-            vs = new VokunSalad();
             vs.Size = BleakwindBuffet.Data.Enums.Size.Small;
 
-            this.DataContext = vs;
+            vsGrid.DataContext = vs;
+            this.vs = vs;
         }
 
-        /// <summary>
-        /// Event handler to customize Vokun Salad
-        /// </summary>
-        /// <param name="sender">The object sending a message></param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            SaladContainerBorder.Child = new MenuSelectionComponent();
-        }
+        
     }
 }

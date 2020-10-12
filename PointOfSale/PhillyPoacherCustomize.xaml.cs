@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: PhillyPoacherCustomize.xaml.cs
  * Purpose: Class used to represent a Philly Poacher entree customization screen
  */
@@ -34,26 +34,17 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public PhillyPoacherCustomize()
+        public PhillyPoacherCustomize(PhillyPoacher pp)
         {
             InitializeComponent();
-            pp = new PhillyPoacher();
             pp.Sirloin = true;
             pp.Onion = true;
             pp.Roll = true;
 
-            this.DataContext = pp;
+            ppGrid.DataContext = pp;
+            this.pp = pp;
         }
 
-        /// <summary>
-        /// Event handler to customize Philly Poacher
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            PoacherContainerBorder.Child = new MenuSelectionComponent();
-        }
+        
     }
 }

@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: FriedMiraakCustomize.xaml.cs
  * Purpose: Class used to represent a Fried Miraak side customization screen
  */
@@ -34,24 +34,15 @@ namespace PointOfSale
         /// <summary>
         /// Creates the UI customization screen
         /// </summary>
-        public FriedMiraakCustomize()
+        public FriedMiraakCustomize(FriedMiraak fm)
         {
             InitializeComponent();
-            fm = new FriedMiraak();
             fm.Size = BleakwindBuffet.Data.Enums.Size.Small;
+            fmGrid.DataContext = fm;
 
-            this.DataContext = fm;
+            this.fm = fm;
         }
 
-        /// <summary>
-        /// Event handler to customize Fried Miraak
-        /// </summary>
-        /// <param name="sender">The object sending a message</param>
-        /// <param name="e">The event data</param>
-        void Done(object sender, RoutedEventArgs e)
-        {
-            //add item to list here?
-            MiraakContainerBorder.Child = new MenuSelectionComponent();
-        }
+        
     }
 }

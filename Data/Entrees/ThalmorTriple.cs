@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: ThalmorTriple.cs
  * Purpose: Class used to represent a Thalmor Triple entree
  */
@@ -84,6 +84,7 @@ namespace BleakwindBuffet.Data.Entrees
                 bun = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -98,6 +99,7 @@ namespace BleakwindBuffet.Data.Entrees
                 ketchup = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -112,6 +114,7 @@ namespace BleakwindBuffet.Data.Entrees
                 mustard = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -126,6 +129,7 @@ namespace BleakwindBuffet.Data.Entrees
                 pickle = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -140,6 +144,7 @@ namespace BleakwindBuffet.Data.Entrees
                 cheese = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -154,6 +159,7 @@ namespace BleakwindBuffet.Data.Entrees
                 tomato = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -168,6 +174,7 @@ namespace BleakwindBuffet.Data.Entrees
                 lettuce = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -182,6 +189,7 @@ namespace BleakwindBuffet.Data.Entrees
                 mayo = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -196,6 +204,7 @@ namespace BleakwindBuffet.Data.Entrees
                 bacon = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bacon"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -210,6 +219,7 @@ namespace BleakwindBuffet.Data.Entrees
                 egg = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -258,6 +268,36 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!egg)
                     list.Add("Hold egg");
                 return list;
+            }
+        }
+
+        /// <summary>
+        /// Converts special instructions list to a string
+        /// </summary>
+        public string ListToString
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("[");
+                for (int i = 0; i < SpecialInstructions.Count; i++)
+                {
+                    sb.Append(SpecialInstructions[i] + " ");
+                }
+                sb.Append("]");
+                string s = sb.ToString();
+                return s;
+            }
+        }
+
+        /// <summary>
+        /// Property representing ToString
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
             }
         }
 

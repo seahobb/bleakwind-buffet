@@ -214,5 +214,106 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher pp = new PhillyPoacher();
             Assert.Equal("Philly Poacher", pp.ToString());
         }
+
+        [Fact]
+        public void NameShouldReturnToString()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.Equal(x.ToString(), x.Name);
+        }
+
+
+        [Fact]
+        public void ChangingSirloinShouldChangeProperties()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Sirloin", () =>
+            {
+                x.Sirloin = true;
+            });
+            Assert.PropertyChanged(x, "Sirloin", () =>
+            {
+                x.Sirloin = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Sirloin = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Sirloin = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Sirloin = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Sirloin = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingOnionsShouldChangeProperties()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Onion", () =>
+            {
+                x.Onion = true;
+            });
+            Assert.PropertyChanged(x, "Onion", () =>
+            {
+                x.Onion = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Onion = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Onion = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Onion = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Onion = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingRollhouldChangeProperties()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.PropertyChanged(x, "Roll", () =>
+            {
+                x.Roll = true;
+            });
+            Assert.PropertyChanged(x, "Roll", () =>
+            {
+                x.Roll = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Roll = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Roll = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Roll = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Roll = false;
+            });
+
+        }
     }
 }

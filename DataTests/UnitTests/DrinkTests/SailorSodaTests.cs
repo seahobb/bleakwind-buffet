@@ -276,5 +276,147 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             ss.Flavor = flavor;
             Assert.Equal(name, ss.ToString());
         }
+
+        [Fact]
+        public void ChangingSizeChangedShouldChangeProperty()
+        {
+            SailorSoda x = new SailorSoda();
+            Assert.PropertyChanged(x, "SizeChangedSmall", () =>
+            {
+                x.SizeChangedSmall = true;
+            });
+            Assert.PropertyChanged(x, "SizeChangedMedium", () =>
+            {
+                x.SizeChangedMedium = true;
+            });
+            Assert.PropertyChanged(x, "SizeChangedLarge", () =>
+            {
+                x.SizeChangedLarge = true;
+            });
+        }
+
+        [Fact]
+        public void NameShouldReturnToString()
+        {
+            SailorSoda x = new SailorSoda();
+            Assert.Equal(x.ToString(), x.Name);
+        }
+
+        [Fact]
+        public void ChangingIceShouldChangeProperties()
+        {
+            SailorSoda x = new SailorSoda();
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "Ice", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "SpecialInstructions", () =>
+            {
+                x.Ice = false;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Ice = true;
+            });
+            Assert.PropertyChanged(x, "ListToString", () =>
+            {
+                x.Ice = false;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingSizeShouldChangeProperties()
+        {
+            SailorSoda x = new SailorSoda();
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Size", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Name", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Price", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Large;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Medium;
+            });
+            Assert.PropertyChanged(x, "Calories", () =>
+            {
+                x.Size = Size.Large;
+            });
+        }
+
+        [Fact]
+        public void ChangingFlavorChangedShouldChangeProperty()
+        {
+            SailorSoda x = new SailorSoda();
+            Assert.PropertyChanged(x, "FlavorChangedCherry", () =>
+            {
+                x.FlavorChangedCherry = true;
+            });
+            Assert.PropertyChanged(x, "FlavorChangedBlackberry", () =>
+            {
+                x.FlavorChangedBlackberry = true;
+            });
+            Assert.PropertyChanged(x, "FlavorChangedGrapefruit", () =>
+            {
+                x.FlavorChangedGrapefruit = true;
+            });
+            Assert.PropertyChanged(x, "FlavorChangedLemon", () =>
+            {
+                x.FlavorChangedLemon = true;
+            });
+            Assert.PropertyChanged(x, "FlavorChangedPeach", () =>
+            {
+                x.FlavorChangedPeach = true;
+            });
+            Assert.PropertyChanged(x, "FlavorChangedWatermelon", () =>
+            {
+                x.FlavorChangedWatermelon = true;
+            });
+        }
+
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified On: 10/11/2020
  * Class name: SailorSoda.cs
  * Purpose: Class used to represent a Sailor Soda drink
  */
@@ -39,6 +39,36 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         private SodaFlavor flavor = SodaFlavor.Cherry;
 
+        /// <summary>
+        /// Converts special instructions list to a string
+        /// </summary>
+        public string ListToString
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("[");
+                for (int i = 0; i < SpecialInstructions.Count; i++)
+                {
+                    sb.Append(SpecialInstructions[i] + " ");
+                }
+                sb.Append("]");
+                string s = sb.ToString();
+                return s;
+            }
+        }
+
+        /// <summary>
+        /// Property representing ToString
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
         /// <value>
         /// Getter and setter for the private backing ice variable
         /// </value>
@@ -50,6 +80,7 @@ namespace BleakwindBuffet.Data.Drinks
                 ice = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ListToString"));
             }
         }
 
@@ -65,6 +96,188 @@ namespace BleakwindBuffet.Data.Drinks
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        /// <summary>
+        /// Private backing variable for changed size
+        /// </summary>
+        private bool sizeChangedMedium = false;
+
+        /// <summary>
+        /// Getter and setter for private backing variable and notifies properties
+        /// </summary>
+        public bool SizeChangedMedium
+        {
+            get
+            {
+                return sizeChangedMedium;
+            }
+            set
+            {
+                sizeChangedMedium = value;
+                if (sizeChangedMedium == true)
+                    size = Size.Medium;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SizeChangedMedium"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
+
+        /// <summary>
+        /// Private backing variable for changed size
+        /// </summary>
+        private bool sizeChangedSmall = false;
+
+        /// <summary>
+        /// Getter and setter for private backing variable and notifies properties
+        /// </summary>
+        public bool SizeChangedSmall
+        {
+            get
+            {
+                return sizeChangedSmall;
+            }
+            set
+            {
+                sizeChangedSmall = value;
+                if (sizeChangedSmall == true)
+                    size = Size.Small;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SizeChangedSmall"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
+
+        /// <summary>
+        /// Private backing variable for changed size
+        /// </summary>
+        private bool sizeChangedLarge = false;
+
+        /// <summary>
+        /// Getter and setter for private backing variable and notifies properties
+        /// </summary>
+        public bool SizeChangedLarge
+        {
+            get
+            {
+                return sizeChangedLarge;
+            }
+            set
+            {
+                sizeChangedLarge = value;
+                if (sizeChangedLarge == true)
+                    size = Size.Large;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SizeChangedLarge"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            }
+        }
+
+        private bool flavorChangedCherry = false;
+        public bool FlavorChangedCherry
+        {
+            get
+            {
+                return flavorChangedCherry;
+            }
+            set
+            {
+                flavorChangedCherry = value;
+                if (flavorChangedCherry == true)
+                    flavor = SodaFlavor.Cherry;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FlavorChangedCherry"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        private bool flavorChangedBlackberry = false;
+        public bool FlavorChangedBlackberry
+        {
+            get
+            {
+                return flavorChangedBlackberry;
+            }
+            set
+            {
+                flavorChangedBlackberry = value;
+                if (flavorChangedBlackberry == true)
+                    flavor = SodaFlavor.Blackberry;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FlavorChangedBlackberry"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        private bool flavorChangedGrapefruit = false;
+        public bool FlavorChangedGrapefruit
+        {
+            get
+            {
+                return flavorChangedGrapefruit;
+            }
+            set
+            {
+                flavorChangedGrapefruit = value;
+                if (flavorChangedGrapefruit == true)
+                    flavor = SodaFlavor.Grapefruit;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FlavorChangedGrapefruit"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        private bool flavorChangedLemon = false;
+        public bool FlavorChangedLemon
+        {
+            get
+            {
+                return flavorChangedLemon;
+            }
+            set
+            {
+                flavorChangedLemon = value;
+                if (flavorChangedLemon == true)
+                    flavor = SodaFlavor.Lemon;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FlavorChangedLemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        private bool flavorChangedPeach = false;
+        public bool FlavorChangedPeach
+        {
+            get
+            {
+                return flavorChangedPeach;
+            }
+            set
+            {
+                flavorChangedPeach = value;
+                if (flavorChangedPeach == true)
+                    flavor = SodaFlavor.Peach;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FlavorChangedPeach"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        private bool flavorChangedWatermelon = false;
+        public bool FlavorChangedWatermelon
+        {
+            get
+            {
+                return flavorChangedWatermelon;
+            }
+            set
+            {
+                flavorChangedWatermelon = value;
+                if (flavorChangedWatermelon == true)
+                    flavor = SodaFlavor.Watermelon;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FlavorChangedWatermelon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
 
@@ -78,6 +291,7 @@ namespace BleakwindBuffet.Data.Drinks
             { 
                 flavor = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
             }
         }
 
