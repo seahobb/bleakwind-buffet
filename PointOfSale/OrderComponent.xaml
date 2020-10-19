@@ -11,15 +11,15 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="230"/>
         </Grid.ColumnDefinitions>
-        
-        <local:MenuSelectionComponent/>
+
+        <local:MenuSelectionComponent x:Name="MenuSelectionComponentName"/>
 
         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="210">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Label Content="Order #" VerticalAlignment="Bottom"/>
                 <TextBlock Text="{Binding Path=Number}" Width="100" VerticalAlignment="Center"/>
             </StackPanel>
-            <ListView Name="OrderListView" ItemsSource="{Binding}" Height="250" SelectionChanged="ChangeItemSelection" IsSynchronizedWithCurrentItem="True">
+            <ListView Name="OrderListView" ItemsSource="{Binding}" Height="210">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -28,19 +28,21 @@
                                 <TextBlock Text="{Binding Path=Price}" Width="170"/>
                             </StackPanel>
                             <TextBlock Text="{Binding Path=ListToString}" Width="650" HorizontalAlignment="Left"/>
-                            <Button Name="RemoveButton" Click="RemoveButton" Content="Remove" Width="170" HorizontalAlignment="Left"/>
+                            <!--hi-->
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
-
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="210">
             <WrapPanel>
-                <!--add click for finish order-->
-                <Button Click="CancelOrder" Content="Cancel Order" Margin="7" Height="50" Width="90"/>
-                <Button Name="FinishOrder" Content="Finish Order" Margin="7" Height="50" Width="90"/>
+                <Button Name="RemoveTheButton" Click="RemoveButton" Content="Remove" Width="60" Height="26" HorizontalAlignment="Left" Margin="5"/>
+                <Button Name="EditTheButton" Click="EditButton" Content="Edit" Width="60" Height="26" HorizontalAlignment="Right" Margin="5"/>
             </WrapPanel>
+            
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="210">
+            <Button Click="CancelOrder" Content="Cancel Order" Margin="7" Height="50" Width="90"/>
+           
             <WrapPanel>
                 <Label Content="Subtotal: $"/>
                 <TextBlock Name="Subtotal" HorizontalAlignment="Left" Width="100" Text="{Binding Path=Subtotal}"/>

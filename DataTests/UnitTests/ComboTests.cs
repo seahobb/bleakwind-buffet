@@ -13,11 +13,19 @@ using System.Collections.Generic;
 using System.Linq;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
     public class ComboTests
     {
+        [Fact]
+        public void ClassShouldImplementINotifyPropertyChangedInterface()
+        {
+            var c = new Combo();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(c);
+        }
+
         [Fact]
         public void ShouldReturnCorrectPriceAndCalories()
         {
@@ -77,10 +85,22 @@ namespace BleakwindBuffet.DataTests.UnitTests
         }
 
         [Fact]
-        public void SettingEntreeShouldChangeProperty()
+        public void SettingEntreeShouldChangeProperties()
         {
             Combo c = new Combo();
             Assert.PropertyChanged(c, "Entree", () =>
+            {
+                c.Entree = new ThugsTBone();
+            });
+            Assert.PropertyChanged(c, "Price", () =>
+            {
+                c.Entree = new ThugsTBone();
+            });
+            Assert.PropertyChanged(c, "Calories", () =>
+            {
+                c.Entree = new ThugsTBone();
+            });
+            Assert.PropertyChanged(c, "SpecialInstructions", () =>
             {
                 c.Entree = new ThugsTBone();
             });
@@ -92,7 +112,19 @@ namespace BleakwindBuffet.DataTests.UnitTests
             Combo c = new Combo();
             Assert.PropertyChanged(c, "Drink", () =>
             {
-                c.Drink = new CandlehearthCoffee();
+                c.Drink = new WarriorWater();
+            });
+            Assert.PropertyChanged(c, "Price", () =>
+            {
+                c.Drink = new WarriorWater();
+            });
+            Assert.PropertyChanged(c, "Calories", () =>
+            {
+                c.Drink = new WarriorWater();
+            });
+            Assert.PropertyChanged(c, "SpecialInstructions", () =>
+            {
+                c.Drink = new WarriorWater();
             });
         }
 
@@ -104,6 +136,20 @@ namespace BleakwindBuffet.DataTests.UnitTests
             {
                 c.Side = new MadOtarGrits();
             });
+            Assert.PropertyChanged(c, "Price", () =>
+            {
+                c.Side = new MadOtarGrits();
+            });
+            Assert.PropertyChanged(c, "Calories", () =>
+            {
+                c.Side = new MadOtarGrits();
+            });
+            Assert.PropertyChanged(c, "SpecialInstructions", () =>
+            {
+                c.Side = new MadOtarGrits();
+            });
         }
+
+
     }
 }

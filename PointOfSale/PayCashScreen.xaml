@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="PointOfSale.PayCashScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="800">
+    <Grid Name="payCashScreenGrid">
+        <Canvas Background="Yellow">
+            <WrapPanel>
+                <StackPanel>
+                    <WrapPanel>
+                        <Label HorizontalAlignment="Left" Width="200" FontSize="15" Content="               From Customer"/>
+                        <Label HorizontalAlignment="Left" Width="160" FontSize="15" Content="Give As Change"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="$100" Background="MediumSeaGreen"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=HundredsFromCustomer}" ChangeQuantity="{Binding Path=HundredsAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="$50" Background="MediumSeaGreen"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=FiftysFromCustomer}" ChangeQuantity="{Binding Path=FiftysAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="$20" Background="MediumSeaGreen"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=TwentysFromCustomer}" ChangeQuantity="{Binding Path=TwentysAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="$10" Background="MediumSeaGreen"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=TensFromCustomer}" ChangeQuantity="{Binding Path=TensAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="$5" Background="MediumSeaGreen"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=FivesFromCustomer}" ChangeQuantity="{Binding Path=FivesAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="$2" Background="MediumSeaGreen"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=TwosFromCustomer}" ChangeQuantity="{Binding Path=TwosAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="$1" Background="MediumSeaGreen"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=OnesFromCustomer}" ChangeQuantity="{Binding Path=OnesAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontSize="15" Content="Total Sale:"/>
+                        <TextBlock Text="" FontSize="18" Name="TotalSaleTextBlock" HorizontalAlignment="Left" Height="30" Width="70"/>
+                        <Label FontSize="15" Content="Amount Due: "/>
+                        <TextBlock Text="{Binding Path=AmountDueTextBlock}" FontSize="18" Name="AmountDueTextBlock" HorizontalAlignment="Left" Height="30" Width="70"/>
+                    </WrapPanel>
+              
+                </StackPanel>
+                <StackPanel>
+                    <WrapPanel>
+                        <Label HorizontalAlignment="Left" Width="200" FontSize="15" Content="               From Customer"/>
+                        <Label HorizontalAlignment="Left" Width="160" FontSize="15" Content="Give As Change"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="50¢" Background="SandyBrown"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=HalfDollarsFromCustomer}" ChangeQuantity="{Binding Path=HalfDollarsAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="25¢" Background="SandyBrown"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=QuartersFromCustomer}" ChangeQuantity="{Binding Path=QuartersAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="10¢" Background="SandyBrown"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=DimesFromCustomer}" ChangeQuantity="{Binding Path=DimesAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="5¢" Background="SandyBrown"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=NicklesFromCustomer}" ChangeQuantity="{Binding Path=NicklesAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label FontWeight="Bold" FontSize="18" Height="50" Width="50" Content="1¢" Background="SandyBrown"/>
+                        <local:CashButtonControl CustomerQuantity="{Binding Path=PenniesFromCustomer}" ChangeQuantity="{Binding Path=PenniesAsChange}"/>
+                    </WrapPanel>
+                    <WrapPanel Margin="50" Height="30">
+                        <Label FontSize="15" Content="Change Owed: "/>
+                        <TextBlock Text="{Binding Path=ChangeOwedTextBlock}" FontSize="18" Name="ChangeOwedTextBlock" HorizontalAlignment="Left" Height="30" Width="70"/>
+                    </WrapPanel>
+                    <Button Click="FinalizeSaleClick" Width="90" Height="50" Content="Finalize Sale"/>
+                </StackPanel>
+            </WrapPanel>
+        </Canvas>
+    </Grid>
+</UserControl>

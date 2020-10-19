@@ -47,7 +47,7 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         /// <summary>
-        /// Property representing ToString
+        /// Name property representing if item is a combo or not
         /// </summary>
         public string Name
         {

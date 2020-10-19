@@ -35,15 +35,40 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = false;
 
         /// <summary>
-        /// Property representing ToString
+        /// Private backing variable default for if the item is combo
+        /// </summary>
+        private bool isACombo = false;
+
+        /// <summary>
+        /// Property that if set to true, determines if item is a combo
+        /// </summary>
+        public bool IsACombo
+        {
+            get { return isACombo; }
+            set { isACombo = value; }
+        }
+
+        /// <summary>
+        /// Name property representing if item is a combo or not
         /// </summary>
         public string Name
         {
             get
             {
-                return this.ToString();
+                if (isACombo)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append(this.ToString());
+                    sb.Append(" ((Combo))");
+                    return sb.ToString();
+                }
+                else
+                    return this.ToString();
+
             }
         }
+
+
 
         /// <value>
         /// Getter and setter for the private backing ice variable
@@ -101,6 +126,7 @@ namespace BleakwindBuffet.Data.Drinks
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
             }
         }
 
@@ -127,6 +153,7 @@ namespace BleakwindBuffet.Data.Drinks
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
             }
         }
 
@@ -153,6 +180,7 @@ namespace BleakwindBuffet.Data.Drinks
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToString"));
             }
         }
 

@@ -22,6 +22,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
 using System.Windows.Media.Converters;
+using BleakwindBuffet.Data.Interfaces;
 
 namespace PointOfSale
 {
@@ -30,13 +31,34 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuSelectionComponent : UserControl
     {
+   
         /// <summary>
         /// Creates UI menu selection screen
         /// </summary>
         public MenuSelectionComponent()
         {
             InitializeComponent();
+            
+            //OrderComponent oc = new OrderComponent(this);
             //this.DataContext = this;
+        }
+
+        
+        void FinishOrder(object sender, RoutedEventArgs e)
+        {
+            ComboButton.IsEnabled = false;
+            AddComboButton.IsEnabled = false;
+            // RetrunToComboSelection.IsEnabled = false;
+
+
+            AddComboButton.Visibility = Visibility.Hidden;
+            ComboButton.Visibility = Visibility.Hidden;
+            ReturnToComboButton.Visibility = Visibility.Hidden;
+            PaymentButton.Visibility = Visibility.Hidden;
+          
+            PaymentScreen ps = new PaymentScreen();
+
+            ContainerBorder.Child = ps;
         }
 
         /// <summary>
@@ -49,8 +71,32 @@ namespace PointOfSale
             if (DataContext is Order o)
             {
                 ThugsTBone ttb = new ThugsTBone();
-                o.Add(ttb);
+                if (c != null)
+                {
+                    c.Entree = ttb;
+
+                    bbButton.IsEnabled = false;
+                    ddButton.IsEnabled = false;
+                    gooButton.IsEnabled = false;
+                    ppButton.IsEnabled = false;
+                    shsButton.IsEnabled = false;
+                    ttButton.IsEnabled = false;
+                    ttbButton.IsEnabled = false;
+
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ReturnToComboButton.IsEnabled = true;
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                    o.Add(ttb);
+                
             }
+
         }
 
         /// <summary>
@@ -63,11 +109,38 @@ namespace PointOfSale
             if (DataContext is Order o)
             {
                 BriarheartBurger bb = new BriarheartBurger();
-                o.Add(bb);
-                ContainerBorder.Child = new BriarheartBurgerCustomize(bb);
+                if (c != null)
+                {
+                    bb.IsACombo = true;
+                    c.Entree = bb;
+
+                    bbButton.IsEnabled = false;
+                    ddButton.IsEnabled = false;
+                    gooButton.IsEnabled = false;
+                    ppButton.IsEnabled = false;
+                    shsButton.IsEnabled = false;
+                    ttButton.IsEnabled = false;
+                    ttbButton.IsEnabled = false;
+
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new BriarheartBurgerCustomize(bb);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                        
+                }
+                else
+                {
+                    o.Add(bb);
+                    ContainerBorder.Child = new BriarheartBurgerCustomize(bb);
+                }
             }
 
-            // ContainerBorder.Child = new BriarheartBurgerCustomize(); 
+            
         }
 
         /// <summary>
@@ -79,11 +152,35 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                DoubleDraugr d = new DoubleDraugr();
+                if (c != null)
+                {
+                    d.IsACombo = true;
+                    c.Entree = d;
 
-                DoubleDraugr dd = new DoubleDraugr();
-                o.Add(dd);
-                ContainerBorder.Child = new DoubleDraugrCustomize(dd);
+                    bbButton.IsEnabled = false;
+                    ddButton.IsEnabled = false;
+                    gooButton.IsEnabled = false;
+                    ppButton.IsEnabled = false;
+                    shsButton.IsEnabled = false;
+                    ttButton.IsEnabled = false;
+                    ttbButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new DoubleDraugrCustomize(d);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(d);
+                    ContainerBorder.Child = new DoubleDraugrCustomize(d);
+                }
             }
         }
 
@@ -96,11 +193,35 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                GardenOrcOmelette g = new GardenOrcOmelette();
+                if (c != null)
+                {
+                    g.IsACombo = true;
+                    c.Entree = g;
 
-                GardenOrcOmelette goo = new GardenOrcOmelette();
-                o.Add(goo);
-                ContainerBorder.Child = new GardenOrcOmeletteCustomize(goo);
+                    bbButton.IsEnabled = false;
+                    ddButton.IsEnabled = false;
+                    gooButton.IsEnabled = false;
+                    ppButton.IsEnabled = false;
+                    shsButton.IsEnabled = false;
+                    ttButton.IsEnabled = false;
+                    ttbButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new GardenOrcOmeletteCustomize(g);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(g);
+                    ContainerBorder.Child = new GardenOrcOmeletteCustomize(g);
+                }
             }
         }
 
@@ -113,11 +234,35 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                PhillyPoacher p = new PhillyPoacher();
+                if (c != null)
+                {
+                    p.IsACombo = true;
+                    c.Entree = p;
 
-                PhillyPoacher pp = new PhillyPoacher();
-                o.Add(pp);
-                ContainerBorder.Child = new PhillyPoacherCustomize(pp);
+                    bbButton.IsEnabled = false;
+                    ddButton.IsEnabled = false;
+                    gooButton.IsEnabled = false;
+                    ppButton.IsEnabled = false;
+                    shsButton.IsEnabled = false;
+                    ttButton.IsEnabled = false;
+                    ttbButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new PhillyPoacherCustomize(p);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(p);
+                    ContainerBorder.Child = new PhillyPoacherCustomize(p);
+                }
             }
         }
 
@@ -130,11 +275,35 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
-
                 SmokehouseSkeleton shs = new SmokehouseSkeleton();
-                o.Add(shs);
-                ContainerBorder.Child = new SmokehouseSkeletonCustomize(shs);
+                if (c != null)
+                {
+                    shs.IsACombo = true;
+                    c.Entree = shs;
 
+                    bbButton.IsEnabled = false;
+                    ddButton.IsEnabled = false;
+                    gooButton.IsEnabled = false;
+                    ppButton.IsEnabled = false;
+                    shsButton.IsEnabled = false;
+                    ttButton.IsEnabled = false;
+                    ttbButton.IsEnabled = false;
+
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new SmokehouseSkeletonCustomize(shs);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(shs);
+                    ContainerBorder.Child = new SmokehouseSkeletonCustomize(shs);
+                }
             }
         }
         
@@ -147,11 +316,35 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                ThalmorTriple x = new ThalmorTriple();
+                if (c != null)
+                {
+                    x.IsACombo = true;
+                    c.Entree = x;
 
-                ThalmorTriple tt = new ThalmorTriple();
-                o.Add(tt);
-                ContainerBorder.Child = new ThalmorTripleCustomize(tt);
+                    bbButton.IsEnabled = false;
+                    ddButton.IsEnabled = false;
+                    gooButton.IsEnabled = false;
+                    ppButton.IsEnabled = false;
+                    shsButton.IsEnabled = false;
+                    ttButton.IsEnabled = false;
+                    ttbButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new ThalmorTripleCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new ThalmorTripleCustomize(x);
+                }
             }
         }
         
@@ -162,18 +355,40 @@ namespace PointOfSale
         /// <param name="e">The event data</param>
         void AretinoAppleJuice(object sender, RoutedEventArgs e)
         {
-         
+
 
             if (DataContext is Order o)
             {
-    
-                AretinoAppleJuice aj = new AretinoAppleJuice(); //i want to use this object for removing it later
-                o.Add(aj); 
-                ContainerBorder.Child = new AretinoAppleJuiceCustomize(aj); //i want to use this value for customizing again
-           
+                AretinoAppleJuice x = new AretinoAppleJuice();
+                if (c != null)
+                {
+                    x.IsACombo = true;
+                    c.Drink = x;
+
+                    ajButton.IsEnabled = false;
+                    ccButton.IsEnabled = false;
+                    ssButton.IsEnabled = false;
+                    mmButton.IsEnabled = false;
+                    wwButton.IsEnabled = false;
+
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new AretinoAppleJuiceCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new AretinoAppleJuiceCustomize(x);
+                }
             }
 
-            // ContainerBorder.Child = new AretinoAppleJuiceCustomize();
+
         }
 
         /// <summary>
@@ -185,13 +400,35 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                CandlehearthCoffee x = new CandlehearthCoffee();
+                if (c != null)
+                {
+                    x.IsACombo = true; 
+                    c.Drink = x;
 
-                CandlehearthCoffee cc = new CandlehearthCoffee(); //i want to use this object for removing it later
-                o.Add(cc);
-                ContainerBorder.Child = new CandlehearthCoffeeCustomize(cc); //i want to use this value for customizing again
+                    ajButton.IsEnabled = false;
+                    ccButton.IsEnabled = false;
+                    ssButton.IsEnabled = false;
+                    mmButton.IsEnabled = false;
+                    wwButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new CandlehearthCoffeeCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new CandlehearthCoffeeCustomize(x);
+                }
             }
-           
+
         }
 
         /// <summary>
@@ -203,13 +440,35 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                MarkarthMilk x = new MarkarthMilk();
+                if (c != null)
+                {
+                    x.IsACombo = true;
+                    c.Drink = x;
 
-                MarkarthMilk mm = new MarkarthMilk(); //i want to use this object for removing it later
-                o.Add(mm);
-                ContainerBorder.Child = new MarkarthMilkCustomize(mm); ; //i want to use this value for customizing again
+                    ajButton.IsEnabled = false;
+                    ccButton.IsEnabled = false;
+                    ssButton.IsEnabled = false;
+                    mmButton.IsEnabled = false;
+                    wwButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new MarkarthMilkCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new MarkarthMilkCustomize(x);
+                }
             }
-            
+
         }
 
         /// <summary>
@@ -221,11 +480,33 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                SailorSoda x = new SailorSoda();
+                if (c != null)
+                {
+                    x.IsACombo = true; 
+                    c.Drink = x;
 
-                SailorSoda ss = new SailorSoda(); 
-                o.Add(ss);
-                ContainerBorder.Child = new SailorSodaCustomize(ss);
+                    ajButton.IsEnabled = false;
+                    ccButton.IsEnabled = false;
+                    ssButton.IsEnabled = false;
+                    mmButton.IsEnabled = false;
+                    wwButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new SailorSodaCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new SailorSodaCustomize(x);
+                }
             }
         }
 
@@ -238,11 +519,33 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                WarriorWater x = new WarriorWater();
+                if (c != null)
+                {
+                    x.IsACombo = true;
+                    c.Drink = x;
 
-                WarriorWater ww = new WarriorWater();
-                o.Add(ww);
-                ContainerBorder.Child = new WarriorWaterCustomize(ww);
+                    ajButton.IsEnabled = false;
+                    ccButton.IsEnabled = false;
+                    ssButton.IsEnabled = false;
+                    mmButton.IsEnabled = false;
+                    wwButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new WarriorWaterCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new WarriorWaterCustomize(x);
+                }
             }
         }
 
@@ -255,11 +558,32 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                DragonbornWaffleFries x = new DragonbornWaffleFries();
+                if (c != null)
+                {
+                    x.IsACombo = true;
+                    c.Side = x;
 
-                DragonbornWaffleFries dwf = new DragonbornWaffleFries();
-                o.Add(dwf);
-                ContainerBorder.Child = new DragonbornWaffleFriesCustomize(dwf);
+                    dwfButton.IsEnabled = false;
+                    fmButton.IsEnabled = false;
+                    mogButton.IsEnabled = false;
+                    vsButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new DragonbornWaffleFriesCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new DragonbornWaffleFriesCustomize(x);
+                }
             }
         }
 
@@ -272,11 +596,32 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                FriedMiraak x = new FriedMiraak();
+                if (c != null)
+                {
+                    x.IsACombo = true;
+                    c.Side = x;
 
-                FriedMiraak fm = new FriedMiraak();
-                o.Add(fm);
-                ContainerBorder.Child = new FriedMiraakCustomize(fm);
+                    dwfButton.IsEnabled = false;
+                    fmButton.IsEnabled = false;
+                    mogButton.IsEnabled = false;
+                    vsButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new FriedMiraakCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new FriedMiraakCustomize(x);
+                }
             }
         }
 
@@ -289,11 +634,32 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                MadOtarGrits x = new MadOtarGrits();
+                if (c != null)
+                {
+                    x.IsACombo = true;
+                    c.Side = x;
 
-                MadOtarGrits mog = new MadOtarGrits();
-                o.Add(mog);
-                ContainerBorder.Child = new MadOtarGritsCustomize(mog);
+                    dwfButton.IsEnabled = false;
+                    fmButton.IsEnabled = false;
+                    mogButton.IsEnabled = false;
+                    vsButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new MadOtarGritsCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new MadOtarGritsCustomize(x);
+                }
             }
         }
 
@@ -306,11 +672,32 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
+                VokunSalad x = new VokunSalad();
+                if (c != null)
+                {
+                    x.IsACombo = true;
+                    c.Side = x;
 
-                VokunSalad vs = new VokunSalad();
-                o.Add(vs);
-                ContainerBorder.Child = new VokunSaladCustomize(vs);
+                    dwfButton.IsEnabled = false;
+                    fmButton.IsEnabled = false;
+                    mogButton.IsEnabled = false;
+                    vsButton.IsEnabled = false;
 
+                    ReturnToComboButton.IsEnabled = true;
+                    ReturnToMenuSelection.IsEnabled = false;
+                    ContainerBorder.Child = new VokunSaladCustomize(x);
+                    toDoTextBlock.Text = "Select a Combo Item";
+                    if (c.Entree != null && c.Drink != null && c.Side != null)
+                    {
+                        toDoTextBlock.Text = "Add Combo To Order";
+                        AddComboButton.IsEnabled = true;
+                    }
+                }
+                else
+                {
+                    o.Add(x);
+                    ContainerBorder.Child = new VokunSaladCustomize(x);
+                }
             }
         }
 
@@ -321,14 +708,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         void ReturnToMenu (object sender, RoutedEventArgs e)
         {
+            c = null;
             ComboButton.IsEnabled = true;
             ContainerBorder.Child = null;
+            AddComboButton.Visibility = Visibility.Visible;
+            ComboButton.Visibility = Visibility.Visible;
+            ReturnToComboButton.Visibility = Visibility.Visible;
+            PaymentButton.Visibility = Visibility.Visible;
         }
-
-        /// <summary>
-        /// Private backing variable for combo screen instance
-        /// </summary>
-        private ComboScreen cs;
         
         /// <summary>
         /// Private backing variable for combo instance
@@ -347,11 +734,8 @@ namespace PointOfSale
                 c = new Combo(); 
                 
                 ComboButton.IsEnabled = false;
-                
-                AddComboButton.IsEnabled = true;
-                RetrunToComboSelection.IsEnabled = true;
-                cs = new ComboScreen();
-                ContainerBorder.Child = cs;
+                ReturnToMenuSelection.IsEnabled = false;
+                toDoTextBlock.Text = "Select a Combo Item";
             }
             
         }
@@ -365,7 +749,32 @@ namespace PointOfSale
         {
             if (DataContext is Order o)
             {
-                o.Add(c);
+                o.Add((IOrderItem)c.Entree);
+                o.Add((IOrderItem)c.Drink);
+                o.Add((IOrderItem)c.Side);
+                ComboButton.IsEnabled = true;
+                AddComboButton.IsEnabled = false;
+                ReturnToMenuSelection.IsEnabled = true;
+                ReturnToComboButton.IsEnabled = false;
+                bbButton.IsEnabled = true;
+                ddButton.IsEnabled = true;
+                gooButton.IsEnabled = true;
+                ppButton.IsEnabled = true;
+                shsButton.IsEnabled = true;
+                ttButton.IsEnabled = true;
+                ttbButton.IsEnabled = true;
+                ajButton.IsEnabled = true;
+                ccButton.IsEnabled = true;
+                mmButton.IsEnabled = true;
+                ssButton.IsEnabled = true;
+                wwButton.IsEnabled = true;
+                dwfButton.IsEnabled = true;
+                fmButton.IsEnabled = true;
+                mogButton.IsEnabled = true;
+                vsButton.IsEnabled = true;
+                toDoTextBlock.Text = "";
+                ContainerBorder.Child = null;
+                c = null;
             }
         }
 
@@ -376,6 +785,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void ReturnToComboSelection(object sender, RoutedEventArgs e)
         {
+            ComboButton.IsEnabled = false;
             ContainerBorder.Child = null;
         }
     }
