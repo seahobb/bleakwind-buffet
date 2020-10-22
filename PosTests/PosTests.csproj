@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <Reference Include="RoundRegister">
-      <HintPath>..\PointOfSale\bin\Debug\netcoreapp3.1\RoundRegister.dll</HintPath>
+      <HintPath>..\RoundRegister.dll</HintPath>
     </Reference>
   </ItemGroup>
 
