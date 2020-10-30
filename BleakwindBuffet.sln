@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTests", "DataTests\Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{40037D5C-432C-4BD4-983F-631C0176671E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTests", "PosTests\PosTests.csproj", "{38E5B2D0-A7FA-4072-8013-03E2111E4426}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PosTests", "PosTests\PosTests.csproj", "{38E5B2D0-A7FA-4072-8013-03E2111E4426}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{3CB2FE47-446D-45D2-95B0-CEF33FD06444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebsiteTests", "WebsiteTests\WebsiteTests.csproj", "{D01C069F-7CEA-436D-86F5-2D1C00B0377B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{38E5B2D0-A7FA-4072-8013-03E2111E4426}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38E5B2D0-A7FA-4072-8013-03E2111E4426}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38E5B2D0-A7FA-4072-8013-03E2111E4426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB2FE47-446D-45D2-95B0-CEF33FD06444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB2FE47-446D-45D2-95B0-CEF33FD06444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB2FE47-446D-45D2-95B0-CEF33FD06444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB2FE47-446D-45D2-95B0-CEF33FD06444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D01C069F-7CEA-436D-86F5-2D1C00B0377B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01C069F-7CEA-436D-86F5-2D1C00B0377B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01C069F-7CEA-436D-86F5-2D1C00B0377B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01C069F-7CEA-436D-86F5-2D1C00B0377B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

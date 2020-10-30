@@ -1,0 +1,93 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Bleakwind Buffet</h1>
+    <!----<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
+    <p>
+        We at Bleakwind Buffet are proud to bring you 
+        authentic fantasy meals straight from the world 
+        of Skyrim. Shake the blood off your sword and 
+        sake your thirst with one of our old-fashioned 
+        sailor sodas. Hack into a Smokehouse Skeleton 
+        with your dagger. Or vanquish the the mighty 
+        Thalmor Triple Burger! You’ve had a hard adventure 
+        and earned your loot, so spend it with us!
+    </p>
+</div>
+<div class="text-center">
+    <h2 class="display-4">Entrees</h2>
+    @{
+        foreach(var entree in MenuDatabase.Entrees)
+        {
+            <div class="menu-item">
+                <p>
+                    @entree.ToString() |
+                    $@entree.Price |
+                    Calories: @entree.Calories
+                </p>
+            </div>
+        }
+    }
+</div>
+<div class="text-center">
+    <h2 class="display-4">Sides</h2>
+    @{
+        foreach (var side in MenuDatabase.Sides)
+        {
+        <div class="menu-item">
+            <p>
+                @side.ToString() |
+                $@side.Price |
+                Calories: @side.Calories
+            </p>
+            @{
+                if (side.ToString().Contains("Large"))
+                {
+                    <p>____________________</p>
+                }
+            }
+        </div>
+        }
+    }
+</div>
+<div class="text-center">
+    <h2 class="display-4">Drinks</h2>
+    @{
+        foreach (var drink in MenuDatabase.Drinks)
+        {
+        <div class="menu-item">
+            <p>
+                @drink.ToString() |
+                $@drink.Price |
+                Calories: @drink.Calories
+            </p>
+            @{
+                if (drink.ToString().Contains("Large"))
+                {
+                    <p>____________________</p>
+                }
+            }
+        </div>
+        }
+    }
+</div>
+<div class="text-center">
+    <h2 class="display-4">Combos</h2>
+    <p>
+        Any entree, side, and drink can be combined into a Combo
+        with a $1 discount. 
+    </p>
+</div>
+<div class="text-center">
+    <h2 class="display-4">Soda Flavors</h2>
+    <p class="sodaflavorlist">Blackberry</p>
+    <p class="sodaflavorlist">Cherry</p>
+    <p class="sodaflavorlist">Grapefruit</p>
+    <p class="sodaflavorlist">Lemon</p>
+    <p class="sodaflavorlist">Peach</p>
+    <p class="sodaflavorlist">Watermelon</p>
+</div>
