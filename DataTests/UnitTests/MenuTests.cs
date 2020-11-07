@@ -6,12 +6,11 @@
 
 using Xunit;
 using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Drinks;
-using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using BleakwindBuffet.Data.Entrees;
+
+using System.Text;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
@@ -157,6 +156,191 @@ namespace BleakwindBuffet.DataTests.UnitTests
                 item => Assert.Equal("Medium Vokun Salad", item.ToString()),
                 item => Assert.Equal("Large Vokun Salad", item.ToString())
             );
+        }
+
+        [Fact]
+        public void SearchResultShouldContainCorrectItems()
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            List<IOrderItem> list = (List<IOrderItem>)menu;
+
+
+            var result = Menu.Search("earth"); //partial search for Candlehearth
+            
+
+            if (result != null)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (IOrderItem item in result)
+                {
+                    sb.Append(item.ToString());
+                    sb.Append(" ");
+                }
+                string allSearchResults = sb.ToString();
+
+                StringBuilder sb1 = new StringBuilder();
+                foreach (IOrderItem item in list)
+                {
+                    sb1.Append(item.ToString());
+                    sb1.Append(" ");
+                }
+                string allMenuItems = sb1.ToString();
+
+                Assert.Contains(allSearchResults, allMenuItems);
+            }
+        }
+
+        [Fact]
+        public void ShouldReturnAllIfSearchIsNull()
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            List<IOrderItem> list = (List<IOrderItem>)menu;
+            var result = Menu.Search(null);
+
+            if (result != null)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (IOrderItem item in result)
+                {
+                    sb.Append(item.ToString());
+                    sb.Append(" ");
+                }
+                string allSearchResults = sb.ToString();
+
+                StringBuilder sb1 = new StringBuilder();
+                foreach (IOrderItem item in list)
+                {
+                    sb1.Append(item.ToString());
+                    sb1.Append(" ");
+                }
+                string allMenuItems = sb1.ToString();
+
+                Assert.Contains(allSearchResults, allMenuItems);
+            }
+
+        }
+
+        [Fact]
+        public void ShouldFilterByCategory()
+        {
+            IEnumerable<IOrderItem> entrees = Menu.Entrees();
+            List<IOrderItem> list = (List<IOrderItem>)entrees;
+            var result = Menu.Search(""); //returns all menu items
+
+            var categories = new List<string>();
+            categories.Add("Entrees"); 
+
+            var filteredResult = Menu.FilterByCategory(result, categories);
+
+
+            Assert.Equal(filteredResult.Count(), list.Count()); 
+
+
+
+            if (filteredResult != null)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (IOrderItem item in filteredResult)
+                {
+                    sb.Append(item.ToString());
+                    sb.Append(" ");
+                }
+                string allSearchResults = sb.ToString();
+
+                StringBuilder sb1 = new StringBuilder();
+                foreach (IOrderItem item in list)
+                {
+                    sb1.Append(item.ToString());
+                    sb1.Append(" ");
+                }
+                string allMenuItems = sb1.ToString();
+
+                Assert.Contains(allSearchResults, allMenuItems);
+            }
+
+        }
+
+        [Fact]
+        public void ShouldFilterByCalories()
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            List<IOrderItem> list = (List<IOrderItem>)menu;
+            var result = Menu.Search(""); //returns all menu items
+
+            int min = 0;
+            int max = 1;
+
+            var filteredResult = Menu.FilterByCalories(result, min, max);
+
+
+            Assert.Equal(3, filteredResult.Count()); //only should be water (small, med, large)
+
+
+
+            if (filteredResult != null)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (IOrderItem item in filteredResult)
+                {
+                    sb.Append(item.ToString());
+                    sb.Append(" ");
+                }
+                string allSearchResults = sb.ToString();
+
+                StringBuilder sb1 = new StringBuilder();
+                foreach (IOrderItem item in Menu.Drinks())
+                {
+                    if (item.Calories == 0) //only water
+                    {
+                        sb1.Append(item.ToString());
+                        sb1.Append(" ");
+                    }
+                }
+                string water = sb1.ToString();
+
+                Assert.Contains(allSearchResults, water);
+            }
+
+        }
+
+        [Fact]
+        public void ShouldFilterByPrice()
+        {
+            IEnumerable<IOrderItem> menu = Menu.FullMenu();
+            List<IOrderItem> list = (List<IOrderItem>)menu;
+            var result = Menu.Search(""); //returns all menu items
+
+            int min = 4;
+            int max = 10;
+
+            var filteredResult = Menu.FilterByPrice(result, min, max);
+
+
+            Assert.Equal(7, filteredResult.Count()); //only should be all entree items
+
+
+
+            if (filteredResult != null)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (IOrderItem item in filteredResult)
+                {
+                    sb.Append(item.ToString());
+                    sb.Append(" ");
+                }
+                string allSearchResults = sb.ToString();
+
+                StringBuilder sb1 = new StringBuilder();
+                foreach (IOrderItem item in Menu.Entrees())
+                {
+                    sb1.Append(item.ToString());
+                    sb1.Append(" ");
+                }
+                string entreeItems = sb1.ToString();
+
+                Assert.Contains(allSearchResults, entreeItems);
+            }
+
         }
     }
 }

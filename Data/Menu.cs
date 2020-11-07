@@ -14,6 +14,8 @@ using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using System.Xml.Serialization;
 using System.Linq;
+using System.Xml.Schema;
+using System.Runtime.CompilerServices;
 
 namespace BleakwindBuffet.Data
 {
@@ -268,6 +270,180 @@ namespace BleakwindBuffet.Data
             }
 
             return menu;
+        }
+
+       
+        /// <summary>
+        /// Gets every item on the menu
+        /// </summary>
+        public static IEnumerable<IOrderItem> All { get { return FullMenu(); } }
+
+        /// <summary>
+        /// Searches each item in the menu for the specified search query
+        /// </summary>
+        /// <param name="search">Search query</param>
+        /// <returns>IEnumerable of IOrderItem's</returns>
+        public static IEnumerable<IOrderItem> Search(string search)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            // Null check
+            if (search == null) return All; 
+
+            foreach (IOrderItem item in All)
+            { 
+                if (item.ToString().ToLowerInvariant().Contains(search.ToLowerInvariant()))
+                    results.Add(item);
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// Filters the search results based on categories selected
+        /// </summary>
+        /// <param name="items">Holds current search results</param>
+        /// <param name="categories">Could contain entree, drink, or side</param>
+        /// <returns>IEnumerable of IOrderItem's</returns>
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> categories) 
+        {
+            if (categories == null || categories.Count() == 0) return items;
+
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            foreach (string category in categories)
+            {
+                if (category == "Entrees")
+                {
+                    foreach (IOrderItem item in items)
+                    {
+                        if (item != null) 
+                        {
+                            foreach (IOrderItem entree in Entrees())
+                            {
+                                if (item.ToString().Equals(entree.ToString()))
+                                    results.Add(item);
+                            }
+                        }
+                    }
+                }
+                else if (category == "Sides")
+                {
+                    foreach (IOrderItem item in items)
+                    {
+                        if (item != null)
+                        {
+                            foreach (IOrderItem side in Sides())
+                            {
+                                if (item.ToString().Equals(side.ToString()))
+                                    results.Add(item);
+                            }
+                        }
+                    }
+                }
+                else if (category == "Drinks") 
+                {
+                    foreach (IOrderItem item in items)
+                    {
+                        if (item != null)
+                        {
+                            foreach (IOrderItem drink in Drinks())
+                            {
+                                if (item.ToString().Equals(drink.ToString()))
+                                    results.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// Filters the search results based on calories selected
+        /// </summary>
+        /// <param name="items">Holds current search results</param>
+        /// <param name="min">The chosen minimum calories</param>
+        /// <param name="max">The chosen maximum calories</param>
+        /// <returns>IEnumerable of IOrderItem's</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, int? min, int? max)
+        {
+            if (min == 0 && max == 0)
+            {
+                return items;
+            }
+
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (min == 0)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            if (max == 0)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+
+            foreach (IOrderItem item in items)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// Filters the search results based on price selected
+        /// </summary>
+        /// <param name="items">Holds current search results</</param>
+        /// <param name="min">The chosen minimum price</param>
+        /// <param name="max">The chosen maximum price</param>
+        /// <returns>IEnumerable of IOrderItem's</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == 0 && max == 0)
+            {
+                return items;
+            }
+
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (min == 0)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            if (max == 0)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price >= min) results.Add(item);
+                }
+                return results;
+            }
+
+            foreach (IOrderItem item in items)
+            {
+                if (item.Price >= min && item.Price <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
         }
     }
 }

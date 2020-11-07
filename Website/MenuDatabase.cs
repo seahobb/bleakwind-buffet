@@ -67,5 +67,18 @@ namespace Website
         /// Gets the local side list
         /// </summary>
         public static IEnumerable<IOrderItem> Sides { get { return sides; } }
+    
+        /// <summary>
+        /// Holds each type of category for a order item.
+        /// </summary>
+        public static string[] Categories
+        {
+            get => new string[]
+            {
+                "Entrees",
+                "Sides",
+                "Drinks"
+            };
+        }
     }
 }

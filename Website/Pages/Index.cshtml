@@ -4,90 +4,169 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to the Bleakwind Buffet</h1>
-    <!----<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
-    <p>
-        We at Bleakwind Buffet are proud to bring you 
-        authentic fantasy meals straight from the world 
-        of Skyrim. Shake the blood off your sword and 
-        sake your thirst with one of our old-fashioned 
-        sailor sodas. Hack into a Smokehouse Skeleton 
-        with your dagger. Or vanquish the the mighty 
-        Thalmor Triple Burger! You’ve had a hard adventure 
-        and earned your loot, so spend it with us!
-    </p>
-</div>
-<div class="text-center">
-    <h2 class="display-4">Entrees</h2>
-    @{
-        foreach(var entree in MenuDatabase.Entrees)
+    <div class="text-center">
+        <h1 class="display-4">Welcome to the Bleakwind Buffet</h1>
+        <!----<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
+        <p>
+            We at Bleakwind Buffet are proud to bring you
+            authentic fantasy meals straight from the world
+            of Skyrim. Shake the blood off your sword and
+            sake your thirst with one of our old-fashioned
+            sailor sodas. Hack into a Smokehouse Skeleton
+            with your dagger. Or vanquish the the mighty
+            Thalmor Triple Burger! You’ve had a hard adventure
+            and earned your loot, so spend it with us!
+        </p>
+    </div>
+
+<form id="menu-database">
+
+    <div id="search" class="text-center">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
+        <input type="submit" value="Search"/>
+    </div>
+
+    <div>
+
+    </div>
+    <div id="filters">
+        @foreach (string category in MenuDatabase.Categories)
         {
-            <div class="menu-item">
-                <p>
-                    @entree.ToString() |
-                    $@entree.Price |
-                    Calories: @entree.Calories
-                </p>
-            </div>
+            <label>
+                <input type="checkbox" name="Categories" value="@category"
+                       checked="@Model.Categories.Contains(category)" />
+                @category
+            </label>
         }
-    }
-</div>
-<div class="text-center">
-    <h2 class="display-4">Sides</h2>
-    @{
-        foreach (var side in MenuDatabase.Sides)
-        {
-        <div class="menu-item">
-            <p>
-                @side.ToString() |
-                $@side.Price |
-                Calories: @side.Calories
-            </p>
+
+        <h4>Calories</h4>
+        <div>
+            Between
+            <input name="CaloriesMin" type="number" min="0"
+                   max="1000" step="1" placeholder="min" />
+            and
+            <input name="CaloriesMax" type="number" min="0"
+                   max="1000" step="1" placeholder="max" />
+        </div>
+
+        <h4>Price</h4>
+        <div>
+            Between
+            <input name="PriceMin" type="number" min="0"
+                   max="10" step=".1" placeholder="min" />
+            and
+            <input name="PriceMax" type="number" min="0"
+                   max="10" step=".1" placeholder="max" />
+        </div>
+    </div>
+
+    <div id="results">
+        <ul class="item-list">
             @{
-                if (side.ToString().Contains("Large"))
+                @if (Model.SearchTerms == null)
                 {
-                    <p>____________________</p>
+                    <div class="text-center">
+                        <h2 class="display-4">Entrees</h2>
+                        @{
+                            foreach (var entree in MenuDatabase.Entrees)
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        @entree.ToString() |
+                                        $@entree.Price |
+                                        Calories: @entree.Calories
+                                    </p>
+                                    @{
+                                        if (entree.ToString().Contains("Large"))
+                                        {
+                                            <p>____________________</p>
+                                        }
+                                    }
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="text-center">
+                        <h2 class="display-4">Sides</h2>
+                        @{
+                            foreach (var side in MenuDatabase.Sides)
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        @side.ToString() |
+                                        $@side.Price |
+                                        Calories: @side.Calories
+                                    </p>
+                                    @{
+                                        if (side.ToString().Contains("Large"))
+                                        {
+                                            <p>____________________</p>
+                                        }
+                                    }
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="text-center">
+                        <h2 class="display-4">Drinks</h2>
+                        @{
+                            foreach (var drink in MenuDatabase.Drinks)
+                            {
+                                <div class="menu-item">
+                                    <p>
+                                        @drink.ToString() |
+                                        $@drink.Price |
+                                        Calories: @drink.Calories
+                                    </p>
+                                    @{
+                                        if (drink.ToString().Contains("Large"))
+                                        {
+                                            <p>____________________</p>
+                                        }
+                                    }
+                                </div>
+                            }
+                        }
+                    </div>
+                    <div class="text-center">
+                        <h2 class="display-4">Combos</h2>
+                        <p>
+                            Any entree, side, and drink can be combined into a Combo
+                            with a $1 discount.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <h2 class="display-4">Soda Flavors</h2>
+                        <p class="sodaflavorlist">Blackberry</p>
+                        <p class="sodaflavorlist">Cherry</p>
+                        <p class="sodaflavorlist">Grapefruit</p>
+                        <p class="sodaflavorlist">Lemon</p>
+                        <p class="sodaflavorlist">Peach</p>
+                        <p class="sodaflavorlist">Watermelon</p>
+                    </div>
+                }
+                else
+                {
+                    @foreach (BleakwindBuffet.Data.Interfaces.IOrderItem item in Model.Items)
+                    {
+                        <div class="text-center">
+                            <p>
+                                @item.ToString() |
+                                $@item.Price |
+                                Calories: @item.Calories
+                            </p>
+                        </div>
+                    }
                 }
             }
-        </div>
-        }
-    }
-</div>
-<div class="text-center">
-    <h2 class="display-4">Drinks</h2>
-    @{
-        foreach (var drink in MenuDatabase.Drinks)
-        {
-        <div class="menu-item">
-            <p>
-                @drink.ToString() |
-                $@drink.Price |
-                Calories: @drink.Calories
-            </p>
-            @{
-                if (drink.ToString().Contains("Large"))
-                {
-                    <p>____________________</p>
-                }
-            }
-        </div>
-        }
-    }
-</div>
-<div class="text-center">
-    <h2 class="display-4">Combos</h2>
-    <p>
-        Any entree, side, and drink can be combined into a Combo
-        with a $1 discount. 
-    </p>
-</div>
-<div class="text-center">
-    <h2 class="display-4">Soda Flavors</h2>
-    <p class="sodaflavorlist">Blackberry</p>
-    <p class="sodaflavorlist">Cherry</p>
-    <p class="sodaflavorlist">Grapefruit</p>
-    <p class="sodaflavorlist">Lemon</p>
-    <p class="sodaflavorlist">Peach</p>
-    <p class="sodaflavorlist">Watermelon</p>
-</div>
+
+
+
+        </ul>
+    </div>
+
+</form>
+
+
+
+
