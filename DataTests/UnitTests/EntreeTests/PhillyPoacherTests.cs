@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: PhillyPoacherTests.cs
  * Purpose: Test the PhillyPoacher.cs class in the Data library
  */
@@ -314,6 +314,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 x.Roll = false;
             });
 
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            PhillyPoacher x = new PhillyPoacher();
+            Assert.Equal("Cheesesteak sandwich made from " +
+            "grilled sirloin, topped with onions on a fried roll.", x.Description);
         }
     }
 }

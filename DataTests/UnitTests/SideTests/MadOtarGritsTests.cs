@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: MadOtarGritsTests.cs
  * Purpose: Test the MadOtarGrits.cs class in the Data library
  */
@@ -228,6 +228,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             {
                 x.Size = Size.Large;
             });
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            MadOtarGrits x = new MadOtarGrits();
+            Assert.Equal("Cheesey Grits.", x.Description);
         }
     }
 }

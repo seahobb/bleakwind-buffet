@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: VokunSalad.cs
  * Purpose: Class used to represent a Vokun Salad side
  */
@@ -224,6 +224,12 @@ namespace BleakwindBuffet.Data.Sides
 
             }
         }
+
+        /// <summary>
+        /// Gets the description as a string
+        /// </summary>
+        public string Description => "A seasonal fruit salad of mellons, " +
+            "berries, mango, grape, apple, and oranges.";
 
         /// <summary>
         /// Gets string for side

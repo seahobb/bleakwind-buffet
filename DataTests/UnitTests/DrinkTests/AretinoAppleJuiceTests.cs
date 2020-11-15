@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 9/30/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: AretinoAppleJuiceTests.cs
  * Purpose: Test the AretinoAppleJuice.cs class in the Data library
  */
@@ -310,7 +310,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             });
         }
 
-
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            AretinoAppleJuice aj = new AretinoAppleJuice();
+            Assert.Equal("Fresh squeezed apple juice.", aj.Description);
+        }
 
         //how to know if to use these tests above:
         //ice (invoke)

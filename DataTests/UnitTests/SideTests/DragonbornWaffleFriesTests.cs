@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: DragonbornWaffleFriesTests.cs
  * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
  */
@@ -230,6 +230,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             });
         }
 
-        
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            DragonbornWaffleFries x = new DragonbornWaffleFries();
+            Assert.Equal("Crispy fried potato waffle fries.", x.Description);
+        }
+
+
     }
 }

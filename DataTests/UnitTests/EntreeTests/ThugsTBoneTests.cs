@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: ThugsTBoneTests.cs
  * Purpose: Test the ThugsTBone.cs class in the Data library
  */
@@ -54,6 +54,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             ThugsTBone tb = new ThugsTBone();
             Assert.Equal("Thugs T-Bone", tb.ToString());
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            ThugsTBone x = new ThugsTBone();
+            Assert.Equal("Juicy T-Bone, not much else to say.", x.Description);
         }
     }
 }

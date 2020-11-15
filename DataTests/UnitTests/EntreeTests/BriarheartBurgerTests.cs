@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: BriarheartBurgerTests.cs
  * Purpose: Test the BriarheartBurger.cs class in the Data library
  */
@@ -480,6 +480,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 x.Cheese = false;
             });
 
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            BriarheartBurger x = new BriarheartBurger();
+            Assert.Equal("Single patty burger on a brioche bun. " +
+            "Comes with ketchup, mustard, pickle, and cheese.", x.Description);
         }
     }
 }

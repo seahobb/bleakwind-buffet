@@ -73,3 +73,20 @@ body {
 .sodaflavorlist{
    text-align: center; 
 }
+
+
+.flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 490px) {
+    .flex-columns {
+        flex-direction: column;
+        height: 2400px;
+    }
+}
+
+.clearfix {
+    clear: both;
+}

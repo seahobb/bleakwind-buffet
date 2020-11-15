@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/1/2020
+ * Modified on: 11/14/2020
  * Class: WarriorWaterTests.cs
  * Purpose: Test the WarriorWater.cs class in the Data library
  */
@@ -393,6 +393,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
                 x.Lemon = false;
             });
 
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            WarriorWater x = new WarriorWater();
+            Assert.Equal("It’s water. Just water.", x.Description);
         }
     }
 }

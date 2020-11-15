@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: ThalmorTriple.cs
  * Purpose: Class used to represent a Thalmor Triple entree
  */
@@ -323,6 +323,13 @@ namespace BleakwindBuffet.Data.Entrees
 
             }
         }
+
+        /// <summary>
+        /// Gets the description as a string
+        /// </summary>
+        public string Description => "Think you are strong enough to take on the Thalmor? " +
+            "Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, " +
+            "pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
 
         /// <summary>
         /// Gets string for entree

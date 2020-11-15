@@ -1,3 +1,9 @@
+/*
+ * Author: Ethan Wheeler
+ * Class: MenuDatabaseTests.cs
+ * Purpose: Test the MenuDatabase.cs class 
+ */
+
 using System;
 using Xunit;
 using Website;
@@ -88,6 +94,20 @@ namespace WebsiteTests
                 item => Assert.Equal("Small Warrior Water", item.ToString()),
                 item => Assert.Equal("Medium Warrior Water", item.ToString()),
                 item => Assert.Equal("Large Warrior Water", item.ToString())
+            );
+        }
+
+        [Fact]
+        public void CategoriesShouldGetCorrectMenuItems()
+        {
+            IEnumerable<string> categories = MenuDatabase.Categories;
+
+            Assert.Equal(3, categories.Count());
+
+            Assert.Collection(categories,
+                item => Assert.Equal("Entrees", item.ToString()),
+                item => Assert.Equal("Sides", item.ToString()),
+                item => Assert.Equal("Drinks", item.ToString())
             );
         }
     }

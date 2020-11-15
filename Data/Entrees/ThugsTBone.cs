@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: ThugsTBone.cs
  * Purpose: Class used to represent a Thugs T-Bone entree
  */
@@ -56,6 +56,11 @@ namespace BleakwindBuffet.Data.Entrees
                 return this.ToString();
             }
         }
+
+        /// <summary>
+        /// Gets the description as a string
+        /// </summary>
+        public string Description => "Juicy T-Bone, not much else to say.";
 
         /// <summary>
         /// Gets string for entree

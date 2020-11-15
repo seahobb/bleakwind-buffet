@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 9/30/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: CandlehearthCoffeeTests.cs
  * Purpose: Test the CandlehearthCoffee.cs class in the Data library
  */
@@ -456,6 +456,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
                 x.Decaf = false;
             });
 
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            CandlehearthCoffee x = new CandlehearthCoffee();
+            Assert.Equal("Fair trade, fresh ground dark roast coffee.", x.Description);
         }
     }
 }

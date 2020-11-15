@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: DoubleDraugrTests.cs
  * Purpose: Test the DoubleDraugr.cs class in the Data library
  */
@@ -722,6 +722,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 x.Mayo = false;
             });
 
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            DoubleDraugr x = new DoubleDraugr();
+            Assert.Equal("Double patty burger on a brioche bun." +
+            " Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.", x.Description);
         }
     }
 }

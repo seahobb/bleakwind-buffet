@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: GardenOrcOmeletteTests.cs
  * Purpose: Test the GardenOrcOmelette.cs class in the Data library
  */
@@ -395,6 +395,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 x.Cheddar = false;
             });
 
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            GardenOrcOmelette x = new GardenOrcOmelette();
+            Assert.Equal("Vegetarian. Two egg omelette packed " +
+            "with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.", x.Description);
         }
     }
 }

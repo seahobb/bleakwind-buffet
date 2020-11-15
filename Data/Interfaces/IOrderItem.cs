@@ -30,5 +30,10 @@ namespace BleakwindBuffet.Data.Interfaces
         /// Gets the special instructions of the item
         /// </summary>
         List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Gets the description of the item
+        /// </summary>
+        string Description { get; }
     }
 }

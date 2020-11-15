@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: MarkarthMilkTests.cs
  * Purpose: Test the MarkarthMilk.cs class in the Data library
  */
@@ -309,6 +309,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             });
         }
 
-        
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            MarkarthMilk x = new MarkarthMilk();
+            Assert.Equal("Hormone-free organic 2% milk.", x.Description);
+        }
+
+
     }
 }

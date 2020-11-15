@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: GardenOrcOmelette.cs
  * Purpose: Class used to represent a Garden Orc Omelette entree
  */
@@ -191,6 +191,12 @@ namespace BleakwindBuffet.Data.Entrees
 
             }
         }
+
+        /// <summary>
+        /// Gets the description as a string
+        /// </summary>
+        public string Description => "Vegetarian. Two egg omelette packed " +
+            "with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
 
         /// <summary>
         /// Gets string for entree

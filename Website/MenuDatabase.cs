@@ -4,6 +4,7 @@
  * Purpose: Class used to represent the menu of Bleakwind Buffet for html use
  */
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

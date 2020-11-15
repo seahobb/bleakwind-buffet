@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: SailorSoda.cs
  * Purpose: Class used to represent a Sailor Soda drink
  */
@@ -110,7 +110,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Getter and setter for the private backing size variable
         /// </value>
-        public Size Size
+        public override Size Size
         {
             get { return size; }
             set 
@@ -367,6 +367,12 @@ namespace BleakwindBuffet.Data.Drinks
                 return list;
             }
         }
+
+        /// <summary>
+        /// Gets the description as a string
+        /// </summary>
+        public string Description => "An old-fashioned jerked soda, carbonated " +
+            "water and flavored syrup poured over a bed of crushed ice.";
 
         /// <summary>
         /// Gets string for drink

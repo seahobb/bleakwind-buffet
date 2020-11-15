@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: Combo.cs
  * Purpose: Class used to represent a combo order (1 drink, side, and entree)
  */
@@ -202,9 +202,9 @@ namespace BleakwindBuffet.Data
             }
         }
 
-        
-        
-
-        
+        /// <summary>
+        /// Gets combo description
+        /// </summary>
+        public string Description => throw new NotImplementedException();
     }
 }

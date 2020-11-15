@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: FriedMiraakTests.cs
  * Purpose: Test the FriedMiraak.cs class in the Data library
  */
@@ -228,6 +228,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             {
                 x.Size = Size.Large;
             });
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            FriedMiraak x = new FriedMiraak();
+            Assert.Equal("Perfectly prepared hash brown pancakes.", x.Description);
         }
     }
 }

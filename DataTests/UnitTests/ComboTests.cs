@@ -150,6 +150,20 @@ namespace BleakwindBuffet.DataTests.UnitTests
             });
         }
 
+        [Fact]
+        public void DescriptionShouldThrowNotImplementedException()
+        {
+            Combo c = new Combo();
+            try
+            {
+                string s = c.Description;
+            }
+            catch (System.NotImplementedException e)
+            {
+                Assert.Equal("The method or operation is not implemented.", e.Message);
+            }
+            
+        }
 
     }
 }

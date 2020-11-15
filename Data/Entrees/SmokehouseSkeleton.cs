@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: SmokehouseSkeleton.cs
  * Purpose: Class used to represent a Smokehouse Skeleton entree
  */
@@ -191,6 +191,13 @@ namespace BleakwindBuffet.Data.Entrees
 
             }
         }
+
+        /// <summary>
+        /// Gets the description as a string
+        /// </summary>
+        public string Description => "Put some meat on those bones with a small " +
+            "stack of pancakes. Includes sausage links, eggs, and hash browns on the " +
+            "side. Topped with the syrup of your choice.";
 
         /// <summary>
         /// Gets string for entree

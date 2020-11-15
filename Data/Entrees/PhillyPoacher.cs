@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: PhillyPoacher.cs
  * Purpose: Class used to represent a Philly Poacher entree
  */
@@ -169,6 +169,12 @@ namespace BleakwindBuffet.Data.Entrees
 
             }
         }
+
+        /// <summary>
+        /// Gets the description as a string
+        /// </summary>
+        public string Description => "Cheesesteak sandwich made from " +
+            "grilled sirloin, topped with onions on a fried roll.";
 
         /// <summary>
         /// Gets string for entree

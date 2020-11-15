@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: SmokehouseSkeletonTests.cs
  * Purpose: Test the SmokehouseSkeleton.cs class in the Data library
  */
@@ -395,6 +395,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 x.Pancake = false;
             });
 
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            SmokehouseSkeleton x = new SmokehouseSkeleton();
+            Assert.Equal("Put some meat on those bones with a small " +
+            "stack of pancakes. Includes sausage links, eggs, and hash browns on the " +
+            "side. Topped with the syrup of your choice.", x.Description);
         }
     }
 }

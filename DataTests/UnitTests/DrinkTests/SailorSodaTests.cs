@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: SailorSodaTests.cs
  * Purpose: Test the SailorSoda.cs class in the Data library
  */
@@ -415,6 +415,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             {
                 x.FlavorChangedWatermelon = true;
             });
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            SailorSoda x = new SailorSoda();
+            Assert.Equal("An old-fashioned jerked soda, carbonated " +
+            "water and flavored syrup poured over a bed of crushed ice.", x.Description);
         }
 
 

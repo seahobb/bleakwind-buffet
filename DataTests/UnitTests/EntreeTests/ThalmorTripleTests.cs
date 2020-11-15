@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: ThalmorTripleTests.cs
  * Purpose: Test the ThalmorTriple.cs class in the Data library
  */
@@ -883,6 +883,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
                 x.Egg = false;
             });
 
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            ThalmorTriple x = new ThalmorTriple();
+            Assert.Equal("Think you are strong enough to take on the Thalmor? " +
+            "Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, " +
+            "pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.", x.Description);
         }
     }
 }

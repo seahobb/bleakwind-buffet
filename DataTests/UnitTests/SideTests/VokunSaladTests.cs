@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
- * Edited by: Ethan Wheeler on 10/1/2020
+ * Edited by: Ethan Wheeler on 11/14/2020
  * Class: VokunSaladTests.cs
  * Purpose: Test the VokunSalad.cs class in the Data library
  */
@@ -228,6 +228,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             {
                 x.Size = Size.Large;
             });
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            VokunSalad x = new VokunSalad();
+            Assert.Equal("A seasonal fruit salad of mellons, " +
+            "berries, mango, grape, apple, and oranges.", x.Description);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Ethan Wheeler
- * Modified On: 10/11/2020
+ * Modified On: 11/14/2020
  * Class name: MadOtarGrits.cs
  * Purpose: Class used to represent a Mad Otar Grits side
  */
@@ -224,6 +224,11 @@ namespace BleakwindBuffet.Data.Sides
 
             }
         }
+
+        /// <summary>
+        /// Gets the description as a string
+        /// </summary>
+        public string Description => "Cheesey Grits.";
 
         /// <summary>
         /// Gets string for side
